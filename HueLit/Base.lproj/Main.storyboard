@@ -125,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E2i-Dc-ePO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2457.971014492754" y="-854.46428571428567"/>
+            <point key="canvasLocation" x="3452" y="-327"/>
         </scene>
         <!--Connect Bridge View Controller-->
         <scene sceneID="KRE-gL-ezV">
@@ -165,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I1U-uE-wS3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2458" y="-157"/>
+            <point key="canvasLocation" x="2194" y="487"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3xt-fy-gKt">

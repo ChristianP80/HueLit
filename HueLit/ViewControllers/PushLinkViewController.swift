@@ -7,24 +7,41 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class PushLinkViewController: UIViewController {
 
+    let url = "http://192.168.1.225/api"
+    let jsonBody : [String : Any] = ["devicetype" : "my_hue_app#iphone peter"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        checkIfPushLinkIsPressed()
     }
     
+    func checkIfPushLinkIsPressed() {
+        
+        Alamofire.request(url, method: .post, parameters: jsonBody, encoding: JSONEncoding.default)
+            .responseJSON { response in
+                if response.result.isSuccess {
+                    let jsonResponse = JSON(response.result.value as Any)
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+                    if jsonResponse[0]["success"].exists() {
+                        print("contains success")
+                    }
+                } else {
+                    print("Funkar inte")
+                    print(response.error.debugDescription)
+                }
+        }
+        
     }
-    */
 
 }
+
+
+//print("funkar")
+//print(jsonResponse.rawValue)
+//print(jsonResponse[0]["success"].exists())
+//print(jsonResponse[0]["error"]["description"])

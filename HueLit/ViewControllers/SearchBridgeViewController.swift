@@ -37,28 +37,12 @@ class SearchBridgeViewController: UIViewController {
     }
     
     @IBAction func connectToBridge(_ sender: Any) {
-//        let url = "http://192.168.1.225/api/CX0XuJlmCpBkjKepii0zJl6P3i7J77-dduoNjiTM/groups/1/action"
-//        let jsonBody : [String : Any] = ["on": true, "hue": 2000, "effect": "colorloop"]
-//        let messageBody = JSONSerialization.isValidJSONObject(jsonBody)
-//        print(messageBody)
-//        print(jsonBody)
-//
-//        Alamofire.request(url, method: .put, parameters: jsonBody, encoding: JSONEncoding.default)
-//            .responseJSON { response in
-//                if response.result.isSuccess {
-//                    print("It worked")
-//                }
-//        }
+
         if let bridgeUser = user, !user!.isEmpty {
-            print("String is empty or nil \(String(describing: user))")
-            return
+            performSegue(withIdentifier: "selectBridge", sender: self)
         } else {
             performSegue(withIdentifier: "pushLink", sender: self)
         }
-        
-        
-        
-//        performSegue(withIdentifier: "selectBridge", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -86,3 +70,17 @@ class SearchBridgeViewController: UIViewController {
 
 
 //http://192.168.1.225/api/CX0XuJlmCpBkjKepii0zJl6P3i7J77-dduoNjiTM/groups/1/action
+
+
+//        let url = "http://192.168.1.225/api/CX0XuJlmCpBkjKepii0zJl6P3i7J77-dduoNjiTM/groups/1/action"
+//        let jsonBody : [String : Any] = ["on": true, "hue": 2000, "effect": "colorloop"]
+//        let messageBody = JSONSerialization.isValidJSONObject(jsonBody)
+//        print(messageBody)
+//        print(jsonBody)
+//
+//        Alamofire.request(url, method: .put, parameters: jsonBody, encoding: JSONEncoding.default)
+//            .responseJSON { response in
+//                if response.result.isSuccess {
+//                    print("It worked")
+//                }
+//        }
