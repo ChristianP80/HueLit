@@ -29,7 +29,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6q-04-Fx8">
                                 <rect key="frame" x="30" y="176" width="354" height="119.5"/>
-                                <string key="text">Power up your Hue Bridge and hook it up to your Wifi router. Make sure your phone is ocnnected to the same WiFi network as the bridge, if it is the Hue Bridge will be found automatically.</string>
+                                <string key="text">Power up your Hue Bridge and hook it up to your Wifi router. Make sure your phone is connected to the same WiFi network as the bridge, if it is the Hue Bridge will be found automatically.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -79,11 +79,53 @@
                     <navigationItem key="navigationItem" id="PfN-qa-a7H"/>
                     <connections>
                         <segue destination="95f-hi-wgu" kind="show" identifier="selectBridge" id="avu-yY-gy6"/>
+                        <segue destination="cfH-h3-nLe" kind="show" identifier="pushLink" id="har-gx-n9y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="138.61607142857142"/>
+        </scene>
+        <!--Push Link View Controller-->
+        <scene sceneID="CXn-Eb-54n">
+            <objects>
+                <viewController id="cfH-h3-nLe" customClass="PushLinkViewController" customModule="HueLit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HhB-cf-m6n">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="eIS-nM-VEf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lA0-sJ-EOA">
+                                <rect key="frame" x="40" y="840.5" width="334" height="2.5"/>
+                                <color key="progressTintColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="trackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </progressView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pushlink_bridge" translatesAutoresizingMaskIntoConstraints="NO" id="qaU-Qc-0D5">
+                                <rect key="frame" x="40" y="108" width="334" height="712.5"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qaU-Qc-0D5" firstAttribute="leading" secondItem="lgr-BY-De6" secondAttribute="leading" constant="40" id="Con-59-cq2"/>
+                            <constraint firstItem="lgr-BY-De6" firstAttribute="bottom" secondItem="lA0-sJ-EOA" secondAttribute="bottom" constant="20" id="Egu-iE-hNX"/>
+                            <constraint firstItem="lA0-sJ-EOA" firstAttribute="leading" secondItem="HhB-cf-m6n" secondAttribute="leadingMargin" constant="20" id="II5-62-ZM2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lA0-sJ-EOA" secondAttribute="trailing" constant="20" id="MoV-dL-Ovu"/>
+                            <constraint firstAttribute="trailing" secondItem="eIS-nM-VEf" secondAttribute="trailing" id="V42-S7-oF0"/>
+                            <constraint firstItem="qaU-Qc-0D5" firstAttribute="top" secondItem="lgr-BY-De6" secondAttribute="top" constant="20" id="cqj-Dt-P8F"/>
+                            <constraint firstItem="lgr-BY-De6" firstAttribute="trailing" secondItem="qaU-Qc-0D5" secondAttribute="trailing" constant="40" id="mrz-VM-2QI"/>
+                            <constraint firstAttribute="bottom" secondItem="eIS-nM-VEf" secondAttribute="bottom" id="oci-ku-Ays"/>
+                            <constraint firstItem="eIS-nM-VEf" firstAttribute="top" secondItem="HhB-cf-m6n" secondAttribute="top" id="ofU-lz-QWl"/>
+                            <constraint firstItem="lA0-sJ-EOA" firstAttribute="top" secondItem="qaU-Qc-0D5" secondAttribute="bottom" constant="20" id="rz4-Q5-HhM"/>
+                            <constraint firstItem="eIS-nM-VEf" firstAttribute="leading" secondItem="HhB-cf-m6n" secondAttribute="leading" id="uhQ-T2-xs8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lgr-BY-De6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E2i-Dc-ePO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2457.971014492754" y="-854.46428571428567"/>
         </scene>
         <!--Connect Bridge View Controller-->
         <scene sceneID="KRE-gL-ezV">
@@ -123,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I1U-uE-wS3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2042" y="-398"/>
+            <point key="canvasLocation" x="2458" y="-157"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3xt-fy-gKt">
@@ -147,5 +189,6 @@
     <resources>
         <image name="background" width="444" height="794"/>
         <image name="philips-hue-bridge" width="67" height="65"/>
+        <image name="pushlink_bridge" width="342" height="328"/>
     </resources>
 </document>

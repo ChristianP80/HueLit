@@ -15,6 +15,7 @@ class SearchBridgeViewController: UIViewController {
     let url = "https://www.meethue.com/api/nupnp"
     var bridgeJSON : JSON? = JSON.null
     var bridges : [BridgeInfo] = []
+    var user : String? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +27,7 @@ class SearchBridgeViewController: UIViewController {
                     print(self.bridgeJSON![0]["internalipaddress"])
                     print(self.bridgeJSON![0]["id"])
                     
-                    for bridge in self.bridgeJSON! {
-//                        print(bridge.1["id"])
-                        
+                    for bridge in self.bridgeJSON! {                        
                         let bridgeInfo = BridgeInfo(ip: bridge.1["internalipaddress"].stringValue, id: bridge.1["id"].stringValue)
                         self.bridges.append(bridgeInfo)
                         print(self.bridges)
@@ -50,13 +49,25 @@ class SearchBridgeViewController: UIViewController {
 //                    print("It worked")
 //                }
 //        }
-        performSegue(withIdentifier: "selectBridge", sender: self)
+        if let bridgeUser = user, !user!.isEmpty {
+            print("String is empty or nil \(String(describing: user))")
+            return
+        } else {
+            performSegue(withIdentifier: "pushLink", sender: self)
+        }
+        
+        
+        
+//        performSegue(withIdentifier: "selectBridge", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "selectBridge" {
             let selectBridgeVC = segue.destination as! ConnectBridgeViewController
             selectBridgeVC.bridges = bridges
+        }
+        if segue.identifier == "pushLink" {
+            let pushLinkVC = segue.destination as! PushLinkViewController
         }
     }
     
@@ -72,3 +83,6 @@ class SearchBridgeViewController: UIViewController {
 ///api/<username>/groups/<id>/action
 
 //david.neess@ericsson.com
+
+
+//http://192.168.1.225/api/CX0XuJlmCpBkjKepii0zJl6P3i7J77-dduoNjiTM/groups/1/action
