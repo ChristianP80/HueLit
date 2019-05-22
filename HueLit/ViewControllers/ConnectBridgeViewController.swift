@@ -34,9 +34,11 @@ class ConnectBridgeViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "bridgeCell", for: indexPath)
-        cell.textLabel?.text = bridges[indexPath.row].id
-        cell.detailTextLabel?.text = bridges[indexPath.row].ip
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "bridgeCell", for: indexPath)
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "bridgeCell")
+        cell.textLabel?.text = bridges[indexPath.row].ip
+        cell.detailTextLabel?.text = bridges[indexPath.row].id
+        print(bridges[indexPath.row].id)
         return cell
     }
     

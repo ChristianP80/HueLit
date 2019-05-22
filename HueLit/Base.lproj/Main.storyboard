@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tbs-ZW-gvh">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,36 +15,34 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SearchBridgeViewController" customModule="HueLit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="XbN-hk-XAK">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HueLit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUa-pQ-nSs">
-                                <rect key="frame" x="20" y="108" width="374" height="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="HueLit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUa-pQ-nSs">
+                                <rect key="frame" x="20" y="108" width="335" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6q-04-Fx8">
-                                <rect key="frame" x="30" y="176" width="354" height="119.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6q-04-Fx8">
+                                <rect key="frame" x="30" y="176" width="315" height="107.66666666666669"/>
                                 <string key="text">Power up your Hue Bridge and hook it up to your Wifi router. Make sure your phone is connected to the same WiFi network as the bridge, if it is the Hue Bridge will be found automatically.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="philips-hue-bridge" translatesAutoresizingMaskIntoConstraints="NO" id="xZf-zE-bS5">
-                                <rect key="frame" x="82" y="315.5" width="250" height="250"/>
+                                <rect key="frame" x="87.666666666666686" y="303.66666666666669" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="Es2-WE-ERh"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="250" id="Ih9-ty-sbK"/>
-                                    <constraint firstAttribute="width" constant="250" id="d74-e5-oTo"/>
-                                    <constraint firstAttribute="height" constant="250" id="feB-S9-I2P"/>
+                                    <constraint firstAttribute="width" constant="200" id="upb-Y4-hpT"/>
+                                    <constraint firstAttribute="height" constant="200" id="zaU-4B-Nh3"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyn-IW-exu">
-                                <rect key="frame" x="20" y="585.5" width="374" height="30"/>
+                                <rect key="frame" x="20" y="523.66666666666663" width="335" height="26.333333333333371"/>
                                 <state key="normal" title="Connect to Bridge">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -52,32 +50,52 @@
                                     <action selector="connectToBridge:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LK3-cw-VIe"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2oL-ia-mSg">
+                                <rect key="frame" x="112.66666666666669" y="570" width="150" height="20"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="T8w-YH-HAO">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Searching" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBm-hk-bT2">
+                                        <rect key="frame" x="27.999999999999986" y="0.0" width="122.00000000000001" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="H3t-Ko-V6B"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="V6q-04-Fx8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="7Gw-mm-Loe"/>
-                            <constraint firstAttribute="trailing" secondItem="V6q-04-Fx8" secondAttribute="trailing" constant="30" id="DGG-3C-KHD"/>
-                            <constraint firstItem="iyn-IW-exu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Ff6-W7-J58"/>
-                            <constraint firstItem="V6q-04-Fx8" firstAttribute="top" secondItem="TUa-pQ-nSs" secondAttribute="bottom" constant="20" id="Gd0-Tn-pSo"/>
-                            <constraint firstItem="XbN-hk-XAK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="H8b-Pc-Xxv"/>
-                            <constraint firstItem="XbN-hk-XAK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Nlu-hs-PRB"/>
-                            <constraint firstItem="TUa-pQ-nSs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="PFH-Aq-cz9"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iyn-IW-exu" secondAttribute="trailing" constant="20" id="YoC-Su-CUx"/>
-                            <constraint firstAttribute="bottom" secondItem="XbN-hk-XAK" secondAttribute="bottom" id="aUd-cK-dRz"/>
-                            <constraint firstItem="TUa-pQ-nSs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="eQa-18-B8j"/>
-                            <constraint firstItem="iyn-IW-exu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ejs-Jg-46U"/>
-                            <constraint firstItem="V6q-04-Fx8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nGm-bQ-8JF"/>
-                            <constraint firstItem="xZf-zE-bS5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qLi-dd-F0b"/>
-                            <constraint firstItem="xZf-zE-bS5" firstAttribute="top" secondItem="V6q-04-Fx8" secondAttribute="bottom" constant="20" id="qjV-0o-1P1"/>
-                            <constraint firstItem="iyn-IW-exu" firstAttribute="top" secondItem="xZf-zE-bS5" secondAttribute="bottom" constant="20" id="rKG-GV-38b"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TUa-pQ-nSs" secondAttribute="trailing" constant="20" id="tJn-3g-zMP"/>
-                            <constraint firstAttribute="trailing" secondItem="XbN-hk-XAK" secondAttribute="trailing" id="yiR-c5-dy9"/>
-                            <constraint firstItem="TUa-pQ-nSs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z8m-X5-bA7"/>
+                            <constraint firstItem="2oL-ia-mSg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1YP-CT-taT"/>
+                            <constraint firstAttribute="bottom" secondItem="XbN-hk-XAK" secondAttribute="bottom" id="6d7-QP-fu1"/>
+                            <constraint firstItem="XbN-hk-XAK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8NC-Gg-Aqv"/>
+                            <constraint firstItem="TUa-pQ-nSs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="9dD-DJ-CXd"/>
+                            <constraint firstItem="TUa-pQ-nSs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Dnn-qX-k4Q"/>
+                            <constraint firstItem="xZf-zE-bS5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FMU-lB-vW3"/>
+                            <constraint firstItem="V6q-04-Fx8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="KaR-Pl-fGb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2oL-ia-mSg" secondAttribute="bottom" constant="188" id="LcX-cD-mbK"/>
+                            <constraint firstItem="XbN-hk-XAK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TdA-1M-YmI"/>
+                            <constraint firstItem="xZf-zE-bS5" firstAttribute="top" secondItem="V6q-04-Fx8" secondAttribute="bottom" constant="20" id="Uej-Ui-8WO"/>
+                            <constraint firstItem="2oL-ia-mSg" firstAttribute="top" secondItem="iyn-IW-exu" secondAttribute="bottom" constant="20" id="Wk7-kI-uHM"/>
+                            <constraint firstItem="2oL-ia-mSg" firstAttribute="centerX" secondItem="XbN-hk-XAK" secondAttribute="centerX" id="Z5q-e0-Mcd"/>
+                            <constraint firstItem="iyn-IW-exu" firstAttribute="top" secondItem="xZf-zE-bS5" secondAttribute="bottom" constant="20" id="ZfF-Pu-LD3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iyn-IW-exu" secondAttribute="trailing" constant="20" id="bCX-1u-bDk"/>
+                            <constraint firstItem="V6q-04-Fx8" firstAttribute="top" secondItem="TUa-pQ-nSs" secondAttribute="bottom" constant="20" id="cP4-8c-5Ce"/>
+                            <constraint firstItem="XbN-hk-XAK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dm0-pk-23U"/>
+                            <constraint firstItem="iyn-IW-exu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="gWt-oZ-xQM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V6q-04-Fx8" secondAttribute="trailing" constant="30" id="wgp-s3-H0e"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TUa-pQ-nSs" secondAttribute="trailing" constant="20" id="ypd-y5-l44"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="PfN-qa-a7H"/>
                     <connections>
+                        <outlet property="searchActivityIndicator" destination="T8w-YH-HAO" id="oxQ-Xd-n1s"/>
+                        <outlet property="searchTextLabel" destination="aBm-hk-bT2" id="PeI-RB-U6g"/>
                         <segue destination="95f-hi-wgu" kind="show" identifier="selectBridge" id="avu-yY-gy6"/>
                         <segue destination="cfH-h3-nLe" kind="show" identifier="pushLink" id="har-gx-n9y"/>
                     </connections>
@@ -91,19 +109,19 @@
             <objects>
                 <viewController id="cfH-h3-nLe" customClass="PushLinkViewController" customModule="HueLit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HhB-cf-m6n">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="eIS-nM-VEf">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lA0-sJ-EOA">
-                                <rect key="frame" x="40" y="840.5" width="334" height="2.5"/>
+                                <rect key="frame" x="36" y="756.33333333333337" width="303" height="2.6666666666666288"/>
                                 <color key="progressTintColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="trackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </progressView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pushlink_bridge" translatesAutoresizingMaskIntoConstraints="NO" id="qaU-Qc-0D5">
-                                <rect key="frame" x="40" y="108" width="334" height="712.5"/>
+                                <rect key="frame" x="40" y="108" width="295" height="628.33333333333337"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -123,19 +141,19 @@
                         <viewLayoutGuide key="safeArea" id="lgr-BY-De6"/>
                     </view>
                     <connections>
-                        <segue destination="3MS-88-eXI" kind="show" id="uls-41-C8y"/>
+                        <segue destination="3MS-88-eXI" kind="show" identifier="roomsVC" id="uls-41-C8y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E2i-Dc-ePO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3387" y="139"/>
+            <point key="canvasLocation" x="3367" y="139"/>
         </scene>
         <!--Rooms View Controller-->
         <scene sceneID="GSK-13-0dV">
             <objects>
                 <viewController id="3MS-88-eXI" customClass="RoomsViewController" customModule="HueLit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iTG-cV-fTO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="H6W-Kt-bYQ"/>
@@ -150,18 +168,18 @@
             <objects>
                 <viewController id="95f-hi-wgu" customClass="ConnectBridgeViewController" customModule="HueLit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rnE-kj-mJa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8vi-Tj-lJS">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bridgeCell" id="iep-yu-bAy">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iep-yu-bAy" id="cBM-xp-QgG">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -192,7 +210,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tbs-ZW-gvh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xRz-fX-7ek">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
