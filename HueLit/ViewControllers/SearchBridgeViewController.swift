@@ -15,10 +15,24 @@ class SearchBridgeViewController: UIViewController {
     let url = "https://www.meethue.com/api/nupnp"
     var bridgeJSON : JSON? = JSON.null
     var bridges : [BridgeInfo] = []
-    var user : String? = nil
-
+    
+    @IBOutlet weak var searchActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var searchTextLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        searchForBridge()
+    }
+    
+    func searchForBridge() {
+        bridges = []
+        searchTextLabel.text = "Searching"
+        searchActivityIndicator.isHidden = false
+        searchActivityIndicator.startAnimating()
         Alamofire.request(url, method: .get)
             .responseJSON { response in
                 if response.result.isSuccess {
@@ -27,21 +41,36 @@ class SearchBridgeViewController: UIViewController {
                     print(self.bridgeJSON![0]["internalipaddress"])
                     print(self.bridgeJSON![0]["id"])
                     
-                    for bridge in self.bridgeJSON! {                        
+                    for bridge in self.bridgeJSON! {
                         let bridgeInfo = BridgeInfo(ip: bridge.1["internalipaddress"].stringValue, id: bridge.1["id"].stringValue)
                         self.bridges.append(bridgeInfo)
+                        self.bridges.append(bridgeInfo)
+                        self.bridges.append(bridgeInfo)
+                        self.bridges.append(bridgeInfo)
+
                         print(self.bridges)
+                        if self.bridges.count > 0 {
+                            self.perform(#selector(self.updateSearchUI), with: nil, afterDelay: 3)
+                        }
                     }
                 }
         }
     }
     
+    @objc func updateSearchUI() {
+        searchActivityIndicator.stopAnimating()
+        searchActivityIndicator.isHidden = true
+        self.searchTextLabel.text = "\(bridges.count) bridges found"
+    }
+    
     @IBAction func connectToBridge(_ sender: Any) {
-
-        if let bridgeUser = user, !user!.isEmpty {
-            performSegue(withIdentifier: "selectBridge", sender: self)
-        } else {
+        switch bridges.count {
+        case 1:
             performSegue(withIdentifier: "pushLink", sender: self)
+        case let count where count > 1:
+            performSegue(withIdentifier: "selectBridge", sender: self)
+        default:
+            return
         }
     }
     
@@ -52,6 +81,7 @@ class SearchBridgeViewController: UIViewController {
         }
         if segue.identifier == "pushLink" {
             let pushLinkVC = segue.destination as! PushLinkViewController
+            pushLinkVC.bridge = bridges[0]
         }
     }
     
@@ -66,7 +96,6 @@ class SearchBridgeViewController: UIViewController {
 
 ///api/<username>/groups/<id>/action
 
-//david.neess@ericsson.com
 
 
 //http://192.168.1.225/api/CX0XuJlmCpBkjKepii0zJl6P3i7J77-dduoNjiTM/groups/1/action
