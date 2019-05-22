@@ -11,9 +11,9 @@ import Alamofire
 import SwiftyJSON
 
 class PushLinkViewController: UIViewController {
-
-    let url = "http://192.168.1.225/api"
-    let jsonBody : [String : Any] = ["devicetype" : "my_hue_app#iphone peter"]
+    var url = "http://192.168.1.225/api"
+    var bridge : BridgeInfo? = nil
+    let jsonBody : [String : Any] = ["devicetype" : "my_hue_app#\(UIDevice.current.name)"]
     var user : String?
     var isLooping : Bool = true
     
@@ -21,6 +21,8 @@ class PushLinkViewController: UIViewController {
         super.viewDidLoad()
         isLooping = true
         getUser()
+        print("Pushlink bridgeip = \(bridge!.ip)")
+        url = "http:\(bridge!.ip)/api"
     }
     
     override func viewDidDisappear(_ animated: Bool) {
