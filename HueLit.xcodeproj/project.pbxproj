@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D61E4022299E1EC009D6202 /* RoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D61E4012299E1EC009D6202 /* RoomCell.swift */; };
 		3DA68688228E9D5000862AF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA68687228E9D5000862AF3 /* AppDelegate.swift */; };
 		3DA6868D228E9D5000862AF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DA6868B228E9D5000862AF3 /* Main.storyboard */; };
 		3DA6868F228E9D5000862AF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DA6868E228E9D5000862AF3 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D61E4012299E1EC009D6202 /* RoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCell.swift; sourceTree = "<group>"; };
 		3DA68684228E9D5000862AF3 /* HueLit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HueLit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA68687228E9D5000862AF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DA6868C228E9D5000862AF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,6 +59,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		3D61E4002299E1CD009D6202 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3D61E4012299E1EC009D6202 /* RoomCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		3DA6867B228E9D5000862AF3 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +88,7 @@
 		3DA68686228E9D5000862AF3 /* HueLit */ = {
 			isa = PBXGroup;
 			children = (
+				3D61E4002299E1CD009D6202 /* Cells */,
 				3DA68699228ECBBD00862AF3 /* ViewControllers */,
 				3DA68687228E9D5000862AF3 /* AppDelegate.swift */,
 				3DA6868B228E9D5000862AF3 /* Main.storyboard */,
@@ -233,6 +244,7 @@
 				3DA6869B228ECBEC00862AF3 /* ConnectBridgeViewController.swift in Sources */,
 				3DA6EEB522955DFC006EE78D /* RoomsViewController.swift in Sources */,
 				3DA68688228E9D5000862AF3 /* AppDelegate.swift in Sources */,
+				3D61E4022299E1EC009D6202 /* RoomCell.swift in Sources */,
 				3DA6869F22920BDB00862AF3 /* BridgeInfo.swift in Sources */,
 				3DA6EEB322940A48006EE78D /* PushLinkViewController.swift in Sources */,
 				3DA6869D2291F42A00862AF3 /* SearchBridgeViewController.swift in Sources */,
