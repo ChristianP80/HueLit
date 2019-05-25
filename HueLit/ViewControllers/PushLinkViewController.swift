@@ -48,6 +48,8 @@ class PushLinkViewController: UIViewController {
                             print("contains success")
                             self.user = jsonResponse[0]["success"]["username"].stringValue
                             print(self.user!)
+                            let roomsVC = self.storyboard?.instantiateViewController(withIdentifier: "roomsVC") as! RoomsViewController
+                            self.present(roomsVC, animated: true, completion: nil)
                         }
                         if jsonResponse[0]["error"].exists() {
                             self.getUser()
@@ -59,9 +61,3 @@ class PushLinkViewController: UIViewController {
             }
     }
 }
-
-
-//print("funkar")
-//print(jsonResponse.rawValue)
-//print(jsonResponse[0]["success"].exists())
-//print(jsonResponse[0]["error"]["description"])
