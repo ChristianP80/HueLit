@@ -15,6 +15,7 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var roomsTableView: UITableView!
     let url = "http:192.168.1.225/apiCX0XuJlmCpBkjKepii0zJl6P3i7J77-dduoNjiTM/groups"
     var roomJSON : JSON? = JSON.null
+    var roomInfo : [RoomInfo] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +26,11 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 if response.result.isSuccess {
                     self.roomJSON = JSON(response.result.value!)
                     print(self.roomJSON!)
-                    for room in self.roomJSON! {
-                        print(room.1["name"])
-                    }
+//                    for room in self.roomJSON! {
+//                        let roomInfo = RoomInfo(roomName: room.1["name"], lights: room.1["lights"], action: room.1["actions"])
+//                        print(room.1["name"])
+//                        print(room.1["action"])
+//                    }
                 }
             }
     }
@@ -42,10 +45,18 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = roomsTableView.dequeueReusableCell(withIdentifier: "roomCell") as! RoomCell
+        cell.layer.borderWidth = 5.0
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.cornerRadius = cell.frame.height / 4
+        cell.backgroundColor = UIColor.lightGray
         cell.roomNameLabel.text = "TypAvRum\(indexPath.row)"
         cell.lightsInfoLabel.text = "Alla lampor är av"
         cell.lightSwitch.isOn = false
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "YOUR ROOMS"
     }
 }
 

@@ -37,7 +37,6 @@ class ConnectBridgeViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bridgeCell", for: indexPath)
         cell.layer.borderWidth = 5.0
-        
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.cornerRadius = cell.frame.height / 4
         cell.backgroundColor = UIColor.lightGray
