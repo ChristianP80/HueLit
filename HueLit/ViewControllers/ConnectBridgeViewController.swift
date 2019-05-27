@@ -13,6 +13,7 @@ import SwiftyJSON
 class ConnectBridgeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var bridgeTableView: UITableView!
+    let defaults = UserDefaults.standard
     let url = "https://www.meethue.com/api/nupnp"
     var bridges : [BridgeInfo] = []
 
@@ -46,7 +47,7 @@ class ConnectBridgeViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        defaults.set(bridges[indexPath.row].ip, forKey: "bridgeIp")
         performSegue(withIdentifier: "tableViewPushLink", sender: self)
     }
     

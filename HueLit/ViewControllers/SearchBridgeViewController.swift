@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class SearchBridgeViewController: UIViewController {
-    
+    let defaults = UserDefaults.standard
     let url = "https://www.meethue.com/api/nupnp"
     var bridgeJSON : JSON? = JSON.null
     var bridges : [BridgeInfo] = []
@@ -66,6 +66,7 @@ class SearchBridgeViewController: UIViewController {
     @IBAction func connectToBridge(_ sender: Any) {
         switch bridges.count {
         case 1:
+            defaults.set(bridges[0].ip, forKey: "bridgeIp")
             performSegue(withIdentifier: "pushLink", sender: self)
         case let count where count > 1:
             performSegue(withIdentifier: "selectBridge", sender: self)

@@ -11,7 +11,8 @@ import Alamofire
 import SwiftyJSON
 
 class PushLinkViewController: UIViewController {
-    var url = "http://192.168.1.225/api"
+    let defaults = UserDefaults.standard
+    var url = String()
     var bridge : BridgeInfo? = nil
     let jsonBody : [String : Any] = ["devicetype" : "my_hue_app#\(UIDevice.current.name)"]
     var user : String?
@@ -20,9 +21,14 @@ class PushLinkViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         isLooping = true
+        buildUrl()
         getUser()
-        print("Pushlink bridgeip = \(bridge!.ip)")
-        url = "http:\(bridge!.ip)/api"
+    }
+    
+    func buildUrl() {
+        let ip = defaults.string(forKey: "bridgeIp") ?? String()
+        print(ip)
+        url = "http://\(ip)/api"
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -39,14 +45,18 @@ class PushLinkViewController: UIViewController {
     }
     
     @objc func checkIfPushLinkIsPressed() {
+        print("this is the utl:\(url)")
             Alamofire.request(url, method: .post, parameters: jsonBody, encoding: JSONEncoding.default)
                 .responseJSON { response in
                     if response.result.isSuccess {
                         let jsonResponse = JSON(response.result.value as Any)
-                        
+                        print("---------------------------------------")
+                        print(jsonResponse)
+                        print("---------------------------------------")
                         if jsonResponse[0]["success"].exists() {
                             print("contains success")
                             self.user = jsonResponse[0]["success"]["username"].stringValue
+                            self.defaults.set(jsonResponse[0]["success"]["username"].stringValue, forKey: "bridgeUser")
                             print(self.user!)
                             let roomsVC = self.storyboard?.instantiateViewController(withIdentifier: "roomsVC") as! RoomsViewController
                             self.present(roomsVC, animated: true, completion: nil)
@@ -61,3 +71,7 @@ class PushLinkViewController: UIViewController {
             }
     }
 }
+
+
+
+//    var url = "http://192.168.1.225/api"
