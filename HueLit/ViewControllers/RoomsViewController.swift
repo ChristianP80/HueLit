@@ -46,11 +46,6 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
                         let someRoom = RoomInfo(roomName: room.1["name"].stringValue)
                         let actionJSON = JSON(room.1["action"])
                         print(actionJSON)
-                        for (key, value) in actionJSON {
-                            self.test.map
-                            print("key: \(key)")
-                            print("JSON: \(value)")
-                        }
                         print("xxxxxxxxxxxxxxxxxxx")
 //                        print(actionJSON)
 //                        let room = RoomInfo(roomName: room.1["name"].stringValue, lights: room.1["lights"].arrayObject, action: room.1["actions"].arrayValue)

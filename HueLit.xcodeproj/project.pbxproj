@@ -69,13 +69,13 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		3D61E4032299EA83009D6202 /* Structs */ = {
+		3D61E4032299EA83009D6202 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				3DA6869E22920BDB00862AF3 /* BridgeInfo.swift */,
 				3D61E4042299EAA4009D6202 /* RoomInfo.swift */,
 			);
-			path = Structs;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		3DA6867B228E9D5000862AF3 = {
@@ -99,7 +99,7 @@
 		3DA68686228E9D5000862AF3 /* HueLit */ = {
 			isa = PBXGroup;
 			children = (
-				3D61E4032299EA83009D6202 /* Structs */,
+				3D61E4032299EA83009D6202 /* Models */,
 				3D61E4002299E1CD009D6202 /* Cells */,
 				3DA68699228ECBBD00862AF3 /* ViewControllers */,
 				3DA68687228E9D5000862AF3 /* AppDelegate.swift */,
