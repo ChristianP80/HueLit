@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BridgeInfo {
-    let ip : String
-    let id : String
+struct BridgeInfo: Decodable {
+    let internalipaddress : String?
+    let id : String?
 }
