@@ -10,6 +10,6 @@ import Foundation
 
 struct RoomInfo {
     var roomName : String
-//    var lights : [String]
+//    var lights : [Any]?
 //    var action : [String : Any]
 }
