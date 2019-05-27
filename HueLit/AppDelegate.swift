@@ -12,11 +12,18 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-
+    let defaults = UserDefaults.standard
+    let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if isKeyPresentInDefaults(key: "bridgeUser") {
+            let roomsVC : UIViewController = storyboard.instantiateViewController(withIdentifier: "roomsVC") as! RoomsViewController
+            self.window?.rootViewController = roomsVC
+            self.window?.makeKeyAndVisible()
+        }
+        
         return true
     }
 
@@ -42,6 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func isKeyPresentInDefaults(key: String) -> Bool {
+        return defaults.object(forKey: key) != nil
+    }
 
 }
 
