@@ -41,13 +41,13 @@ class ConnectBridgeViewController: UIViewController, UITableViewDelegate, UITabl
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.cornerRadius = cell.frame.height / 4
         cell.backgroundColor = UIColor.lightGray
-        cell.textLabel?.text = bridges[indexPath.row].ip
+        cell.textLabel?.text = bridges[indexPath.row].internalipaddress
         cell.detailTextLabel?.text = bridges[indexPath.row].id
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        defaults.set(bridges[indexPath.row].ip, forKey: "bridgeIp")
+        defaults.set(bridges[indexPath.row].internalipaddress, forKey: "bridgeIp")
         performSegue(withIdentifier: "tableViewPushLink", sender: self)
     }
     
