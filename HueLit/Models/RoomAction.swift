@@ -9,13 +9,13 @@
 import Foundation
 
 struct RoomAction: Decodable {
-    var on: Bool
-    var bri: Double
-    var hue: Double
-    var sat: Double
-    var effect: String
-    var xy: [Double]
-    var ct: Double
-    var alert: String
-    var colormode: String
+    let on: Bool
+    let bri: Double
+    let hue: Double
+    let sat: Double
+    let effect: String
+    let xy: [Double]
+    let ct: Double
+    let alert: String
+    let colormode: String
 }

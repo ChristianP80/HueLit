@@ -9,6 +9,6 @@
 import Foundation
 
 struct RoomState: Decodable {
-    var all_on: Bool
-    var any_on: Bool
+    let all_on: Bool
+    let any_on: Bool
 }
