@@ -9,12 +9,12 @@
 import Foundation
 
 struct RoomInfo: Decodable {
-    let roomName: String?
-//    let lights: [String]?
-//    let sensors: [String]?
-//    let type: String?
-//    let state: RoomState?
-//    let recycle: Bool?
-//    let `class` : String?
-//    let action: RoomAction?
+    let name: String
+    let lights: [String]
+    let sensors: [String]
+    let type: String
+    let state: RoomState
+    let recycle: Bool
+    let `class` : String
+    let action: RoomAction
 }
