@@ -8,8 +8,13 @@
 
 import Foundation
 
-struct RoomInfo {
-    var roomName : String
-//    var lights : [Any]?
-//    var action : [String : Any]
+struct RoomInfo: Decodable {
+    var roomName: String?
+    var lights: [String]?
+    var sensors: [String]?
+    var type: String?
+    var state: RoomState?
+    var recycle: Bool?
+    var `class` : String?
+    var action: RoomAction?
 }
