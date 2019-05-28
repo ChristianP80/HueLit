@@ -9,6 +9,6 @@
 import Foundation
 
 struct BridgeInfo: Decodable {
-    let internalipaddress : String?
-    let id : String?
+    let internalipaddress: String?
+    let id: String?
 }
