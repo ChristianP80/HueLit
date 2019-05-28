@@ -13,10 +13,14 @@ import SwiftyJSON
 class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var roomsTableView: UITableView!
-    let url = "http:10.206.9.199/api/poV2ob5w8BJN0Vw7gQz8-VqXt883Qz46mwc2a6Pn/groups"
+    let jsonUrl = "http:10.206.9.199/api/poV2ob5w8BJN0Vw7gQz8-VqXt883Qz46mwc2a6Pn/groups"
+    //let jsonUrl = "http:\(bridgeIp!)/api/\(bridgeUser!)/groups"
     var roomJSON : JSON? = JSON.null
     var roomInfo : [RoomInfo] = []
     var test : [String : Any] = [:]
+    let bridgeUser = UserDefaults.standard.string(forKey: "bridgeUser")
+    let bridgeIp = UserDefaults.standard.string(forKey: "bridgeIp")
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,31 +37,45 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //    }
     
     func searchForRooms() {
-        Alamofire.request(url, method: .get)
-            .responseJSON { response in
-                if response.result.isSuccess {
-                    self.roomJSON = JSON(response.result.value!)
-                    print(self.roomJSON!)
-                    for room in self.roomJSON! {
-                        print(room.1["name"])
-                        print(room.1["lights"])
-                        print(room.1["action"])
-                        print(room.1["state"])
-                        let someRoom = RoomInfo(roomName: room.1["name"].stringValue)
-                        let actionJSON = JSON(room.1["action"])
-                        print(actionJSON)
-                        print("xxxxxxxxxxxxxxxxxxx")
+        
+        guard let url = URL(string: jsonUrl) else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data else { return }
+            do {
+                let rooms = try JSONSerialization.jsonObject(with: data) as! [String:Any]
+                print(rooms)
+            } catch let error {
+                print("Error:", error)
+            }
+            }.resume()
+        
+//        Alamofire.request(jsonUrl, method: .get)
+//            .responseJSON { response in
+//                if response.result.isSuccess {
+//                    self.roomJSON = JSON(response.result.value!)
+//                    print(self.roomJSON!)
+//                    for room in self.roomJSON! {
+//                        print(room.1["name"])
+//                        print(room.1["lights"])
+//                        print(room.1["action"])
+//                        print(room.1["state"])
+//                        let someRoom = RoomInfo(roomName: room.1["name"].stringValue)
+//                        print(someRoom)
+//                        let actionJSON = JSON(room.1["action"])
 //                        print(actionJSON)
-//                        let room = RoomInfo(roomName: room.1["name"].stringValue, lights: room.1["lights"].arrayObject, action: room.1["actions"].arrayValue)
-                         let room = RoomInfo(roomName: room.1["name"].stringValue)
-                        print("printing someroom: \(room)")
-                        self.roomInfo.append(room)
-                    }
-                    print("--------------")
-                    print(self.roomInfo.count)
-                    self.roomsTableView.reloadData()
-                }
-        }
+//                        print("xxxxxxxxxxxxxxxxxxx")
+//                        //                        print(actionJSON)
+//                        //                        let room = RoomInfo(roomName: room.1["name"].stringValue, lights: room.1["lights"].arrayObject, action: room.1["actions"].arrayValue)
+//                        let room = RoomInfo(roomName: room.1["name"].stringValue)
+//                        print("printing someroom: \(room.roomName!)")
+//                        self.roomInfo.append(room)
+//                    }
+//                    print("--------------")
+//                    print(self.roomInfo.count)
+//                    self.roomsTableView.reloadData()
+//                }
+//        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -89,3 +107,17 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //
 
 //från fjället CX0XuJlmCpBkjKepii0zJl6P3i7J77-dduoNjiTM
+
+//guard let url = URL(string: jsonUrl) else { return }
+//
+//URLSession.shared.dataTask(with: url) { (data, response, error) in
+//    guard let data = data else { return }
+//    do {
+//        let rooms = try JSONDecoder().decode(RoomInfo.self, from: data)
+//        print(rooms)
+//        print(data)
+//        print(response!)
+//    } catch let error {
+//        print("Error:", error)
+//    }
+//    }.resume()
