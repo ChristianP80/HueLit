@@ -19,6 +19,8 @@
 		3DA6EEB322940A48006EE78D /* PushLinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA6EEB222940A48006EE78D /* PushLinkViewController.swift */; };
 		3DA6EEB522955DFC006EE78D /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA6EEB422955DFC006EE78D /* RoomsViewController.swift */; };
 		7D01F6410718320BF7613EC2 /* Pods_HueLit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A960F8FB647DA8AB4637D1A5 /* Pods_HueLit.framework */; };
+		BB830153229D4E0A00C39CEA /* RoomState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB830152229D4E0A00C39CEA /* RoomState.swift */; };
+		BB830155229D4F3E00C39CEA /* RoomAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB830154229D4F3E00C39CEA /* RoomAction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		4D99263208270FEFD445DE15 /* Pods-HueLit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HueLit.debug.xcconfig"; path = "Target Support Files/Pods-HueLit/Pods-HueLit.debug.xcconfig"; sourceTree = "<group>"; };
 		830F46CD550A86F8893DCCBC /* Pods-HueLit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HueLit.release.xcconfig"; path = "Target Support Files/Pods-HueLit/Pods-HueLit.release.xcconfig"; sourceTree = "<group>"; };
 		A960F8FB647DA8AB4637D1A5 /* Pods_HueLit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HueLit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB830152229D4E0A00C39CEA /* RoomState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomState.swift; sourceTree = "<group>"; };
+		BB830154229D4F3E00C39CEA /* RoomAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomAction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 			children = (
 				3DA6869E22920BDB00862AF3 /* BridgeInfo.swift */,
 				3D61E4042299EAA4009D6202 /* RoomInfo.swift */,
+				BB830152229D4E0A00C39CEA /* RoomState.swift */,
+				BB830154229D4F3E00C39CEA /* RoomAction.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -254,10 +260,12 @@
 			files = (
 				3DA6869B228ECBEC00862AF3 /* ConnectBridgeViewController.swift in Sources */,
 				3DA6EEB522955DFC006EE78D /* RoomsViewController.swift in Sources */,
+				BB830155229D4F3E00C39CEA /* RoomAction.swift in Sources */,
 				3D61E4052299EAA4009D6202 /* RoomInfo.swift in Sources */,
 				3DA68688228E9D5000862AF3 /* AppDelegate.swift in Sources */,
 				3D61E4022299E1EC009D6202 /* RoomCell.swift in Sources */,
 				3DA6869F22920BDB00862AF3 /* BridgeInfo.swift in Sources */,
+				BB830153229D4E0A00C39CEA /* RoomState.swift in Sources */,
 				3DA6EEB322940A48006EE78D /* PushLinkViewController.swift in Sources */,
 				3DA6869D2291F42A00862AF3 /* SearchBridgeViewController.swift in Sources */,
 			);
