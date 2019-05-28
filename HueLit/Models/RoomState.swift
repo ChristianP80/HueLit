@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct RoomState: Decodable {
+    var all_on: Bool
+    var any_on: Bool
+}
