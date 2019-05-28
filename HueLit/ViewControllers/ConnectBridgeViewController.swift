@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
 
 class ConnectBridgeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     

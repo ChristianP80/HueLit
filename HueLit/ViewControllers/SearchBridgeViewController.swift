@@ -35,7 +35,9 @@ class SearchBridgeViewController: UIViewController {
         guard let url = URL(string: jsonUrl) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data else { return }
+            print("DATA:")
             print(data)
+            print("RESPONSE:")
             print(response!)
             do {
                 self.bridgeInfo = try JSONDecoder().decode([BridgeInfo].self, from: data)
