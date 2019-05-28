@@ -106,7 +106,7 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.layer.cornerRadius = cell.frame.height / 4
         cell.backgroundColor = UIColor.lightGray
 //        cell.roomNameLabel.text = "TypAvRum\(indexPath.row)"
-        cell.roomNameLabel.text = roomInfo["\(indexPath.row)"]?.name
+        cell.roomNameLabel.text = roomInfo["\(indexPath.row + 1)"]?.name
         cell.lightsInfoLabel.text = "Alla lampor är av"
         cell.lightSwitch.isOn = false
         return cell
