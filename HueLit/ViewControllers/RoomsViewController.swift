@@ -13,10 +13,10 @@ import SwiftyJSON
 class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var roomsTableView: UITableView!
-    let jsonUrl = "http:10.206.9.199/api/poV2ob5w8BJN0Vw7gQz8-VqXt883Qz46mwc2a6Pn/groups"
+    let jsonUrl = "http:192.168.1.225/api/qqT1SaqSU6SEvKtzMUdBfEkC1hsfHTg22HgFgr7v/groups"
     //let jsonUrl = "http:\(bridgeIp!)/api/\(bridgeUser!)/groups"
     var roomJSON : JSON? = JSON.null
-    var roomInfo : [RoomInfo] = []
+    var roomInfo : [String:RoomInfo] = [:]
     var test : [String : Any] = [:]
     let bridgeUser = UserDefaults.standard.string(forKey: "bridgeUser")
     let bridgeIp = UserDefaults.standard.string(forKey: "bridgeIp")
@@ -24,10 +24,12 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchForRooms()
         roomsTableView.delegate = self
         roomsTableView.dataSource = self
         roomsTableView.backgroundColor = UIColor.darkGray
-        searchForRooms()
+        roomsTableView.reloadData()
+
     }
     
 //    override func viewDidAppear(_ animated: Bool) {
@@ -43,10 +45,25 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data else { return }
             do {
-                let rooms = try JSONSerialization.jsonObject(with: data) as! [String:Any]
-                print(rooms)
+                self.roomInfo = try JSONDecoder().decode([String:RoomInfo].self, from: data)
+//                print(self.roomInfo)
+                print(self.roomInfo["1"]!.name)
+                print(self.roomInfo.count)
+//                for(key, value) in self.roomInfo {
+//                    print(key)
+//                    print(value)
+//                }
+//                let rooms = try JSONSerialization.jsonObject(with: data) as! [String:Any]
+//                print(rooms)
+//                for room in rooms {
+//                    print(room)
+//
+//                }
             } catch let error {
                 print("Error:", error)
+            }
+            DispatchQueue.main.async {
+                self.roomsTableView.reloadData()
             }
             }.resume()
         
@@ -79,7 +96,7 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return roomInfo.count
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -89,7 +106,7 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.layer.cornerRadius = cell.frame.height / 4
         cell.backgroundColor = UIColor.lightGray
 //        cell.roomNameLabel.text = "TypAvRum\(indexPath.row)"
-        cell.roomNameLabel.text = roomInfo[indexPath.row].roomName
+        cell.roomNameLabel.text = roomInfo["\(indexPath.row)"]?.name
         cell.lightsInfoLabel.text = "Alla lampor är av"
         cell.lightSwitch.isOn = false
         return cell
