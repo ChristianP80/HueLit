@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D61E4022299E1EC009D6202 /* RoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D61E4012299E1EC009D6202 /* RoomCell.swift */; };
 		3D61E4052299EAA4009D6202 /* RoomInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D61E4042299EAA4009D6202 /* RoomInfo.swift */; };
+		3D61E40722A00D3A009D6202 /* RoomSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D61E40622A00D3A009D6202 /* RoomSetupViewController.swift */; };
 		3DA68688228E9D5000862AF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA68687228E9D5000862AF3 /* AppDelegate.swift */; };
 		3DA6868D228E9D5000862AF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DA6868B228E9D5000862AF3 /* Main.storyboard */; };
 		3DA6868F228E9D5000862AF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DA6868E228E9D5000862AF3 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		3D61E4012299E1EC009D6202 /* RoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCell.swift; sourceTree = "<group>"; };
 		3D61E4042299EAA4009D6202 /* RoomInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomInfo.swift; sourceTree = "<group>"; };
+		3D61E40622A00D3A009D6202 /* RoomSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSetupViewController.swift; sourceTree = "<group>"; };
 		3DA68684228E9D5000862AF3 /* HueLit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HueLit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA68687228E9D5000862AF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DA6868C228E9D5000862AF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				3DA6869C2291F42A00862AF3 /* SearchBridgeViewController.swift */,
 				3DA6EEB222940A48006EE78D /* PushLinkViewController.swift */,
 				3DA6EEB422955DFC006EE78D /* RoomsViewController.swift */,
+				3D61E40622A00D3A009D6202 /* RoomSetupViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DA6869B228ECBEC00862AF3 /* ConnectBridgeViewController.swift in Sources */,
+				3D61E40722A00D3A009D6202 /* RoomSetupViewController.swift in Sources */,
 				3DA6EEB522955DFC006EE78D /* RoomsViewController.swift in Sources */,
 				BB830155229D4F3E00C39CEA /* RoomAction.swift in Sources */,
 				3D61E4052299EAA4009D6202 /* RoomInfo.swift in Sources */,
