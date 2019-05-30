@@ -54,6 +54,30 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             }.resume()
     }
+    @IBAction func addClicked(_ sender: Any) {
+        let alert = UIAlertController(title: "Setup", message: "Please Select an Option", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Room setup", style: .default, handler: { (_) in
+            print("User clicked RoomSetup")
+            let roomSetupVC = self.storyboard?.instantiateViewController(withIdentifier: "roomSetupVC") as! RoomSetupViewController
+            self.present(roomSetupVC, animated: true, completion: nil)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Light setup", style: .default, handler: { (_) in
+            print("User clicked Light setup")
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Accessory setup", style: .default, handler: { (_) in
+            print("User clicked Accessory setup")
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+            print("User clicked cancel")
+        }))
+        
+        self.present(alert, animated: true, completion: {
+            print("completion block")
+        })
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return roomArray.count
@@ -61,23 +85,38 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = roomsTableView.dequeueReusableCell(withIdentifier: "roomCell") as! RoomCell
-        cell.layer.borderWidth = 5.0
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.layer.cornerRadius = cell.frame.height / 4
-        cell.backgroundColor = UIColor.lightGray
-        cell.roomNameLabel.text = roomArray[indexPath.row].val.name
-        cell.lightsInfoLabel.text = "Alla lampor är av"
-        if roomArray[indexPath.row].val.state.any_on == true || roomArray[indexPath.row].val.state.all_on == true {
-            cell.lightSwitch.isOn = true
-        } else {
-            cell.lightSwitch.isOn = false
-        }
+        cell.delegate = self
+        cell.setCellLayout(cell: cell)
+        cell.setRoomInfo(roomInfo: roomArray[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "YOUR ROOMS"
     }
+}
+
+extension RoomsViewController : RoomCellDelegate {
+    
+    func didtapLightSwitch(isOn: Bool, room: (key: String, val: RoomInfo)){
+        print(room.key)
+        print(room)
+        print(isOn)
+        let jsonUrl = "http:192.168.1.225/api/u2q1iWISCdcW2bOee7ixyRlli9Sd5p-G4PM0ZNUI/groups/\(room.key)/action"
+        let body = ["on": isOn]
+        let session = URLSession.shared
+        let url = URL(string: jsonUrl)
+        var request = URLRequest(url: url!)
+        request.httpMethod = "PUT"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let jsonData = try! JSONSerialization.data(withJSONObject: body, options: [])
+        let task = session.uploadTask(with: request, from: jsonData) { data, response, error in
+            
+        }
+        task.resume()
+    }
+    
+    
 }
 
 
