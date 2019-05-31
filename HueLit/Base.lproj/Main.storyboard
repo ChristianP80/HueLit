@@ -233,7 +233,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bgI-IA-tgi" firstAttribute="leading" secondItem="H6W-Kt-bYQ" secondAttribute="leading" id="2lK-DX-ow9"/>
                             <constraint firstItem="bgI-IA-tgi" firstAttribute="top" secondItem="7PH-Fm-ibR" secondAttribute="bottom" id="Qde-jL-hXq"/>
@@ -335,7 +335,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ei4-WN-6m8" firstAttribute="leading" secondItem="eS4-fY-Tt6" secondAttribute="leading" id="57n-Pl-VEG"/>
                             <constraint firstItem="eS4-fY-Tt6" firstAttribute="trailing" secondItem="c21-CF-AbJ" secondAttribute="trailing" constant="16" id="78S-sW-5b8"/>
@@ -358,7 +358,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CiJ-sf-Sh5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5296.8000000000002" y="137.4384236453202"/>
+            <point key="canvasLocation" x="5318" y="-521"/>
+        </scene>
+        <!--Search New Lights View Controller-->
+        <scene sceneID="oUm-ZH-Qa2">
+            <objects>
+                <viewController storyboardIdentifier="searchNewLights" id="LnH-Oy-W7u" customClass="SearchNewLightsViewController" customModule="HueLit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="780-PU-fLV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="Qzb-K6-Mqi">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="PbG-No-ErE">
+                                        <barButtonItem key="leftBarButtonItem" title="Close" id="14x-Pg-qyD">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="cancelNewLights:" destination="LnH-Oy-W7u" id="MDW-dz-bMP"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Qzb-K6-Mqi" firstAttribute="top" secondItem="5HM-WP-lBt" secondAttribute="top" id="EWM-eP-Hdi"/>
+                            <constraint firstItem="Qzb-K6-Mqi" firstAttribute="trailing" secondItem="5HM-WP-lBt" secondAttribute="trailing" id="NMg-U3-KLW"/>
+                            <constraint firstItem="Qzb-K6-Mqi" firstAttribute="leading" secondItem="5HM-WP-lBt" secondAttribute="leading" id="W09-K9-WfZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5HM-WP-lBt"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vVX-nL-uzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5318" y="139"/>
         </scene>
         <!--Create Room View Controller-->
         <scene sceneID="flC-B5-haL">
@@ -460,7 +495,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cD5-Th-h9y" firstAttribute="bottom" secondItem="UF0-PT-IeG" secondAttribute="bottom" id="0ul-Ah-8lI"/>
                             <constraint firstItem="cD5-Th-h9y" firstAttribute="trailing" secondItem="UF0-PT-IeG" secondAttribute="trailing" id="8Ly-af-IvM"/>
@@ -523,7 +558,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8vi-Tj-lJS" firstAttribute="bottom" secondItem="OCh-MA-Xmo" secondAttribute="bottom" id="0a8-yh-QD5"/>
                             <constraint firstItem="8vi-Tj-lJS" firstAttribute="leading" secondItem="OCh-MA-Xmo" secondAttribute="leading" constant="10" id="6eF-Ie-XDs"/>
@@ -568,6 +603,6 @@
         <image name="pushlink_bridge" width="342" height="328"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="har-gx-n9y"/>
+        <segue reference="yQS-ab-80M"/>
     </inferredMetricsTieBreakers>
 </document>
