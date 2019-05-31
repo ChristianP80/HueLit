@@ -33,13 +33,14 @@ class RoomSetupViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     @IBAction func createNewRoomClicked(_ sender: Any) {
+        let createRoomVC = self.storyboard?.instantiateViewController(withIdentifier: "createRoomVC") as! CreateRoomViewController
+        self.present(createRoomVC, animated: true, completion: nil)
     }
     
     func getRoomSetup() {
         
     }
     
- 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return roomArray.count
     }
