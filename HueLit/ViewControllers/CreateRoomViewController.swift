@@ -8,23 +8,55 @@
 
 import UIKit
 
-class CreateRoomViewController: UIViewController {
+class CreateRoomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
+    @IBOutlet weak var roomNameTextField: UITextField!
+    @IBOutlet weak var lightsTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        roomNameTextField.delegate = self
+        lightsTableView.delegate = self
+        lightsTableView.dataSource = self
+        lightsTableView.rowHeight = 60
+        setupKeyboardDismissRecognizer()
+    }
 
-        // Do any additional setup after loading the view.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        roomNameTextField.resignFirstResponder()
+        return true
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupKeyboardDismissRecognizer(){
+        let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(CreateRoomViewController.dismissKeyboard))
+        
+        self.view.addGestureRecognizer(tapRecognizer)
     }
-    */
+    
+    @objc func dismissKeyboard()
+    {
+        view.endEditing(true)
+    }
 
+    @IBAction func cancelCreate(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func saveRoom(_ sender: Any) {
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = lightsTableView.dequeueReusableCell(withIdentifier: "CreateRoomCell") as! CreateRoomCell
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Lights selection"
+    }
 }
