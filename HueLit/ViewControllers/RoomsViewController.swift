@@ -64,6 +64,8 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }))
         alert.addAction(UIAlertAction(title: "Light setup", style: .default, handler: { (_) in
             print("User clicked Light setup")
+            let lightsSetupVC = self.storyboard?.instantiateViewController(withIdentifier: "searchNewLights") as! SearchNewLightsViewController
+            self.present(lightsSetupVC, animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "Accessory setup", style: .default, handler: { (_) in
             print("User clicked Accessory setup")
