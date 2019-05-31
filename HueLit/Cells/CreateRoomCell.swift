@@ -10,6 +10,11 @@ import UIKit
 
 class CreateRoomCell: UITableViewCell {
 
+    @IBOutlet weak var lightImageView: UIImageView!
+    @IBOutlet weak var lightTypeLabel: UILabel!
+    @IBOutlet weak var roomNameLabel: UILabel!
+    @IBOutlet weak var checkBoxButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +25,14 @@ class CreateRoomCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    
+    @IBAction func checkBoxTapped(_ sender: UIButton) {
+        if sender.isSelected {
+            sender.isSelected = false
+        } else {
+            sender.isSelected = true
+        }
+    }
+    
 }
