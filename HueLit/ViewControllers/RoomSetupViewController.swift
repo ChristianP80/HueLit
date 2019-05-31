@@ -23,7 +23,6 @@ class RoomSetupViewController: UIViewController, UITableViewDelegate, UITableVie
         roomTableView.estimatedRowHeight = 80
         roomTableView.rowHeight = 60
         roomSetupNavBar.topItem?.title = "Room Setup"
-        createButton.backgroundColor = UIColor.cyan
         createButton.layer.cornerRadius = 5
         print(roomArray[1])
         print(roomArray.count)    }
