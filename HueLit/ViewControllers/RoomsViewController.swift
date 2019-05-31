@@ -13,7 +13,7 @@ import SwiftyJSON
 class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var roomsTableView: UITableView!
-    let jsonUrl = "http:192.168.1.225/api/u2q1iWISCdcW2bOee7ixyRlli9Sd5p-G4PM0ZNUI/groups"
+    let jsonUrl = "http:192.168.1.225/api/mooY-Ctmw5-YSLO4m0Uyw30BBAvzjJYInxzmCzA8/groups"
     //let jsonUrl = "http:\(bridgeIp!)/api/\(bridgeUser!)/groups"
     var roomJSON : JSON? = JSON.null
     var roomInfo : [String:RoomInfo] = [:]
@@ -29,18 +29,17 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         roomsTableView.dataSource = self
         roomsTableView.backgroundColor = UIColor.darkGray
         roomsTableView.reloadData()
-
     }
     
     func searchForRooms() {
-        
         guard let url = URL(string: jsonUrl) else { return }
-
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data else { return }
             do {
                 self.roomInfo = try JSONDecoder().decode([String:RoomInfo].self, from: data)
                 self.roomArray = self.roomInfo.map{$0}
+                self.roomArray = self.roomArray.sorted(by: { $0.0 < $1.0})
+                print("kommer hit")
                 print(type(of: self.roomArray))
                 print(self.roomArray.count)
                 for item in self.roomArray {
@@ -54,26 +53,24 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             }.resume()
     }
+    
     @IBAction func addClicked(_ sender: Any) {
         let alert = UIAlertController(title: "Setup", message: "Please Select an Option", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Room setup", style: .default, handler: { (_) in
             print("User clicked RoomSetup")
             let roomSetupVC = self.storyboard?.instantiateViewController(withIdentifier: "roomSetupVC") as! RoomSetupViewController
+            roomSetupVC.roomArray = self.roomArray
             self.present(roomSetupVC, animated: true, completion: nil)
         }))
-        
         alert.addAction(UIAlertAction(title: "Light setup", style: .default, handler: { (_) in
             print("User clicked Light setup")
         }))
-        
         alert.addAction(UIAlertAction(title: "Accessory setup", style: .default, handler: { (_) in
             print("User clicked Accessory setup")
         }))
-        
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
             print("User clicked cancel")
         }))
-        
         self.present(alert, animated: true, completion: {
             print("completion block")
         })
@@ -91,32 +88,39 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if roomArray[indexPath.row].val.state.all_on || roomArray[indexPath.row].val.state.any_on {
+            return 70
+        } else{
+            return 60
+        }
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "YOUR ROOMS"
     }
 }
 
 extension RoomsViewController : RoomCellDelegate {
-    
     func didtapLightSwitch(isOn: Bool, room: (key: String, val: RoomInfo)){
         print(room.key)
         print(room)
         print(isOn)
         let jsonUrl = "http:192.168.1.225/api/u2q1iWISCdcW2bOee7ixyRlli9Sd5p-G4PM0ZNUI/groups/\(room.key)/action"
         let body = ["on": isOn]
-        let session = URLSession.shared
         let url = URL(string: jsonUrl)
         var request = URLRequest(url: url!)
         request.httpMethod = "PUT"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let jsonData = try! JSONSerialization.data(withJSONObject: body, options: [])
-        let task = session.uploadTask(with: request, from: jsonData) { data, response, error in
-            
-        }
-        task.resume()
+        URLSession.shared.uploadTask(with: request, from: jsonData) { data, response, error in
+            guard let response = response as? HTTPURLResponse else { return }
+            if (200...209).contains(response.statusCode) {
+                
+            }
+        }.resume()
+        self.searchForRooms()
     }
-    
-    
 }
 
 
