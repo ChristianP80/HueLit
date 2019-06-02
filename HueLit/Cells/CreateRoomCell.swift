@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol CreateRoomCellDelegate {
+    func didTapCheckBoxButton(sender: UIButton, light: (key: String, val: LightInfo))
+}
+
 class CreateRoomCell: UITableViewCell {
 
     @IBOutlet weak var lightImageView: UIImageView!
@@ -15,14 +19,16 @@ class CreateRoomCell: UITableViewCell {
     @IBOutlet weak var roomNameLabel: UILabel!
     @IBOutlet weak var checkBoxButton: UIButton!
     
+    var delegate : CreateRoomCellDelegate?
     var light : (key: String, val: LightInfo)!
     
     @IBAction func checkBoxTapped(_ sender: UIButton) {
-        if sender.isSelected {
-            sender.isSelected = false
-        } else {
-            sender.isSelected = true
-        }
+        delegate?.didTapCheckBoxButton(sender: sender, light: light)
+//        if sender.isSelected {
+//            sender.isSelected = false
+//        } else {
+//            sender.isSelected = true
+//        }
     }
     
     func setLightInfo(lightInfo : (key: String, val: LightInfo)) {

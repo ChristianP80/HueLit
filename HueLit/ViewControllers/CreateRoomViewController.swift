@@ -89,24 +89,29 @@ class CreateRoomViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = lightsTableView.dequeueReusableCell(withIdentifier: "CreateRoomCell") as! CreateRoomCell
+        cell.delegate = self
         cell.setLightInfo(lightInfo: lightArray[indexPath.row])
-        if cell.checkBoxButton.isSelected == true {
-            self.lightsToBeAdded.append(lightArray[indexPath.row].key)
-            print(lightsToBeAdded)
-        }
-        if cell.checkBoxButton.isSelected != true {
-            if let index = lightsToBeAdded.firstIndex(of: lightArray[indexPath.row].key) {
-                lightsToBeAdded.remove(at: index)
-                print(lightsToBeAdded)
-            }
-        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Lights selection"
     }
-    
-    
-    
 }
+
+extension CreateRoomViewController : CreateRoomCellDelegate {
+    func didTapCheckBoxButton(sender: UIButton, light: (key: String, val: LightInfo)) {
+        if sender.isSelected {
+            sender.isSelected = false
+            if let index = lightsToBeAdded.firstIndex(of: light.key) {
+                lightsToBeAdded.remove(at: index)
+                print(lightsToBeAdded)
+            }
+        } else {
+            sender.isSelected = true
+            self.lightsToBeAdded.append(light.key)
+            print(lightsToBeAdded)
+        }
+    }
+}
+
