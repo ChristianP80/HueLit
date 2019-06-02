@@ -15,17 +15,7 @@ class CreateRoomCell: UITableViewCell {
     @IBOutlet weak var roomNameLabel: UILabel!
     @IBOutlet weak var checkBoxButton: UIButton!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
+    var light : (key: String, val: LightInfo)!
     
     @IBAction func checkBoxTapped(_ sender: UIButton) {
         if sender.isSelected {
@@ -33,6 +23,12 @@ class CreateRoomCell: UITableViewCell {
         } else {
             sender.isSelected = true
         }
+    }
+    
+    func setLightInfo(lightInfo : (key: String, val: LightInfo)) {
+        self.light = lightInfo
+        lightTypeLabel.text = light.val.productname
+        roomNameLabel.text = light.val.name
     }
     
 }

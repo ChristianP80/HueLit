@@ -23,6 +23,15 @@
 		3DA6EEB522955DFC006EE78D /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA6EEB422955DFC006EE78D /* RoomsViewController.swift */; };
 		3DB3461A22A1C533009BE662 /* CreateRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3461922A1C533009BE662 /* CreateRoomCell.swift */; };
 		3DB3461C22A1D850009BE662 /* SearchNewLightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3461B22A1D850009BE662 /* SearchNewLightsViewController.swift */; };
+		3DB3461E22A30C2B009BE662 /* LightInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3461D22A30C2B009BE662 /* LightInfo.swift */; };
+		3DB3462022A30E3B009BE662 /* LightState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3461F22A30E3B009BE662 /* LightState.swift */; };
+		3DB3462222A312D6009BE662 /* LightSwUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3462122A312D6009BE662 /* LightSwUpdate.swift */; };
+		3DB3462422A3134B009BE662 /* LightCapabilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3462322A3134B009BE662 /* LightCapabilities.swift */; };
+		3DB3462622A3156F009BE662 /* LightConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3462522A3156F009BE662 /* LightConfig.swift */; };
+		3DB3462822A315F6009BE662 /* LightConfigStartUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3462722A315F6009BE662 /* LightConfigStartUp.swift */; };
+		3DB3462A22A31A12009BE662 /* LightCapabilitiesControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3462922A31A12009BE662 /* LightCapabilitiesControl.swift */; };
+		3DB3462C22A31B08009BE662 /* LightCapabilitiesControlCt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3462B22A31B08009BE662 /* LightCapabilitiesControlCt.swift */; };
+		3DB3462E22A31C94009BE662 /* LightsCapabilitiesStreaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3462D22A31C94009BE662 /* LightsCapabilitiesStreaming.swift */; };
 		7D01F6410718320BF7613EC2 /* Pods_HueLit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A960F8FB647DA8AB4637D1A5 /* Pods_HueLit.framework */; };
 		BB830153229D4E0A00C39CEA /* RoomState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB830152229D4E0A00C39CEA /* RoomState.swift */; };
 		BB830155229D4F3E00C39CEA /* RoomAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB830154229D4F3E00C39CEA /* RoomAction.swift */; };
@@ -47,6 +56,15 @@
 		3DA6EEB422955DFC006EE78D /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		3DB3461922A1C533009BE662 /* CreateRoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomCell.swift; sourceTree = "<group>"; };
 		3DB3461B22A1D850009BE662 /* SearchNewLightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNewLightsViewController.swift; sourceTree = "<group>"; };
+		3DB3461D22A30C2B009BE662 /* LightInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightInfo.swift; sourceTree = "<group>"; };
+		3DB3461F22A30E3B009BE662 /* LightState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightState.swift; sourceTree = "<group>"; };
+		3DB3462122A312D6009BE662 /* LightSwUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightSwUpdate.swift; sourceTree = "<group>"; };
+		3DB3462322A3134B009BE662 /* LightCapabilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightCapabilities.swift; sourceTree = "<group>"; };
+		3DB3462522A3156F009BE662 /* LightConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightConfig.swift; sourceTree = "<group>"; };
+		3DB3462722A315F6009BE662 /* LightConfigStartUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightConfigStartUp.swift; sourceTree = "<group>"; };
+		3DB3462922A31A12009BE662 /* LightCapabilitiesControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightCapabilitiesControl.swift; sourceTree = "<group>"; };
+		3DB3462B22A31B08009BE662 /* LightCapabilitiesControlCt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightCapabilitiesControlCt.swift; sourceTree = "<group>"; };
+		3DB3462D22A31C94009BE662 /* LightsCapabilitiesStreaming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightsCapabilitiesStreaming.swift; sourceTree = "<group>"; };
 		4D99263208270FEFD445DE15 /* Pods-HueLit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HueLit.debug.xcconfig"; path = "Target Support Files/Pods-HueLit/Pods-HueLit.debug.xcconfig"; sourceTree = "<group>"; };
 		830F46CD550A86F8893DCCBC /* Pods-HueLit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HueLit.release.xcconfig"; path = "Target Support Files/Pods-HueLit/Pods-HueLit.release.xcconfig"; sourceTree = "<group>"; };
 		A960F8FB647DA8AB4637D1A5 /* Pods_HueLit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HueLit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,10 +106,9 @@
 		3D61E4032299EA83009D6202 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3DA6869E22920BDB00862AF3 /* BridgeInfo.swift */,
-				3D61E4042299EAA4009D6202 /* RoomInfo.swift */,
-				BB830152229D4E0A00C39CEA /* RoomState.swift */,
-				BB830154229D4F3E00C39CEA /* RoomAction.swift */,
+				3DB3463122A31DBC009BE662 /* Bridge */,
+				3DB3463022A31DA8009BE662 /* Light */,
+				3DB3462F22A31D5E009BE662 /* Room */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -141,6 +158,40 @@
 				3DB3461B22A1D850009BE662 /* SearchNewLightsViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3DB3462F22A31D5E009BE662 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				3D61E4042299EAA4009D6202 /* RoomInfo.swift */,
+				BB830152229D4E0A00C39CEA /* RoomState.swift */,
+				BB830154229D4F3E00C39CEA /* RoomAction.swift */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
+		3DB3463022A31DA8009BE662 /* Light */ = {
+			isa = PBXGroup;
+			children = (
+				3DB3461D22A30C2B009BE662 /* LightInfo.swift */,
+				3DB3461F22A30E3B009BE662 /* LightState.swift */,
+				3DB3462122A312D6009BE662 /* LightSwUpdate.swift */,
+				3DB3462322A3134B009BE662 /* LightCapabilities.swift */,
+				3DB3462522A3156F009BE662 /* LightConfig.swift */,
+				3DB3462722A315F6009BE662 /* LightConfigStartUp.swift */,
+				3DB3462922A31A12009BE662 /* LightCapabilitiesControl.swift */,
+				3DB3462B22A31B08009BE662 /* LightCapabilitiesControlCt.swift */,
+				3DB3462D22A31C94009BE662 /* LightsCapabilitiesStreaming.swift */,
+			);
+			path = Light;
+			sourceTree = "<group>";
+		};
+		3DB3463122A31DBC009BE662 /* Bridge */ = {
+			isa = PBXGroup;
+			children = (
+				3DA6869E22920BDB00862AF3 /* BridgeInfo.swift */,
+			);
+			path = Bridge;
 			sourceTree = "<group>";
 		};
 		C6E673FE23AF5DE27FC00ACB /* Frameworks */ = {
@@ -274,19 +325,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DB3461A22A1C533009BE662 /* CreateRoomCell.swift in Sources */,
+				3DB3462C22A31B08009BE662 /* LightCapabilitiesControlCt.swift in Sources */,
 				3DA6869B228ECBEC00862AF3 /* ConnectBridgeViewController.swift in Sources */,
+				3DB3462022A30E3B009BE662 /* LightState.swift in Sources */,
+				3DB3462A22A31A12009BE662 /* LightCapabilitiesControl.swift in Sources */,
+				3DB3461E22A30C2B009BE662 /* LightInfo.swift in Sources */,
 				3D61E40722A00D3A009D6202 /* RoomSetupViewController.swift in Sources */,
 				3DA6EEB522955DFC006EE78D /* RoomsViewController.swift in Sources */,
 				3D61E40F22A15295009D6202 /* CreateRoomViewController.swift in Sources */,
+				3DB3462E22A31C94009BE662 /* LightsCapabilitiesStreaming.swift in Sources */,
+				3DB3462222A312D6009BE662 /* LightSwUpdate.swift in Sources */,
 				BB830155229D4F3E00C39CEA /* RoomAction.swift in Sources */,
+				3DB3462422A3134B009BE662 /* LightCapabilities.swift in Sources */,
 				3D61E40B22A063E6009D6202 /* RoomSetupCell.swift in Sources */,
 				3D61E4052299EAA4009D6202 /* RoomInfo.swift in Sources */,
 				3DA68688228E9D5000862AF3 /* AppDelegate.swift in Sources */,
 				3D61E4022299E1EC009D6202 /* RoomCell.swift in Sources */,
 				3DA6869F22920BDB00862AF3 /* BridgeInfo.swift in Sources */,
 				BB830153229D4E0A00C39CEA /* RoomState.swift in Sources */,
+				3DB3462822A315F6009BE662 /* LightConfigStartUp.swift in Sources */,
 				3DA6EEB322940A48006EE78D /* PushLinkViewController.swift in Sources */,
 				3DB3461C22A1D850009BE662 /* SearchNewLightsViewController.swift in Sources */,
+				3DB3462622A3156F009BE662 /* LightConfig.swift in Sources */,
 				3DA6869D2291F42A00862AF3 /* SearchBridgeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
