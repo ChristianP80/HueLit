@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LightsInfo : Decodable {
+struct LightInfo : Decodable {
     let state : LightState
     let swupdate : LightSwUpdate
     let type : String
