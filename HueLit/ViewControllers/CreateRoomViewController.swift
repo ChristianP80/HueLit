@@ -17,6 +17,7 @@ class CreateRoomViewController: UIViewController, UITableViewDelegate, UITableVi
     let bridgeUser = UserDefaults.standard.string(forKey: "bridgeUser")
     let bridgeIp = UserDefaults.standard.string(forKey: "bridgeIp")
     let jsonUrl = "http:192.168.1.225/api/mooY-Ctmw5-YSLO4m0Uyw30BBAvzjJYInxzmCzA8/lights"
+    let createUrl = "http:192.168.1.225/api/mooY-Ctmw5-YSLO4m0Uyw30BBAvzjJYInxzmCzA8/groups"
     var lightInfo : [String:LightInfo] = [:]
     var lightArray : [(key: String, val: LightInfo)] = []
     var lightsToBeAdded : [String] = []
@@ -81,6 +82,31 @@ class CreateRoomViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func saveRoom(_ sender: Any) {
+        let roomName = roomNameTextField.text!
+        let roomType = typeOfRoomLabel.text!
+//        let json : [String : Any] = ["name": roomName, "type": "Room", "class": roomType, "lights": lightsToBeAdded]
+        let json : [String : Any] = ["name": roomName, "type": "Room", "class": roomType]
+
+        guard let url = URL(string: createUrl) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        do{
+            print("Trying to create body")
+            let jsonData = try JSONSerialization.data(withJSONObject: json)
+            request.httpBody = jsonData
+        } catch let error{
+            print(error.localizedDescription)
+        }
+        URLSession.shared.dataTask(with: request) {data, response, error in
+            guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
+                print("Server error!")
+                return
+            }
+            print("Room created!")
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }.resume()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
