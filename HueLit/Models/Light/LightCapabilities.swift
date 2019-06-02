@@ -11,5 +11,5 @@ import Foundation
 struct LightCapabilities : Decodable {
     let certified : Bool
     let control : LightCapabilitiesControl
-    let lightsCapabilitiesStreaming : LightsCapabilitiesStreaming
+    let streaming : LightsCapabilitiesStreaming
 }
