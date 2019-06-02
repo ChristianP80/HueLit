@@ -10,8 +10,16 @@ import UIKit
 
 class CreateRoomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
-    @IBOutlet weak var roomNameTextField: UITextField!
     @IBOutlet weak var lightsTableView: UITableView!
+    @IBOutlet weak var roomNameTextField: UITextField!
+    @IBOutlet weak var typeOfRoomLabel: UILabel!
+    
+    let bridgeUser = UserDefaults.standard.string(forKey: "bridgeUser")
+    let bridgeIp = UserDefaults.standard.string(forKey: "bridgeIp")
+    let jsonUrl = "http:192.168.1.225/api/mooY-Ctmw5-YSLO4m0Uyw30BBAvzjJYInxzmCzA8/lights"
+    var lightInfo : [String:LightInfo] = [:]
+    var lightArray : [(key: String, val: LightInfo)] = []
+    var lightsToBeAdded : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +28,34 @@ class CreateRoomViewController: UIViewController, UITableViewDelegate, UITableVi
         lightsTableView.dataSource = self
         lightsTableView.rowHeight = 60
         setupKeyboardDismissRecognizer()
+        getAllLights()
+        print(typeOfRoomLabel.text!)
+        print(lightArray.count)
+    }
+    
+    func getAllLights() {
+        guard let url = URL(string: jsonUrl) else { return }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data else { return }
+            do {
+                print(data)
+                self.lightInfo = try JSONDecoder().decode([String:LightInfo].self, from: data)
+                print(self.lightInfo)
+                self.lightArray = self.lightInfo.map{$0}
+                self.lightArray = self.lightArray.sorted(by: { $0.0 < $1.0})
+                print("kommer hit")
+                print(type(of: self.lightArray))
+                print(self.lightArray.count)
+                for item in self.lightArray {
+                    print(item)
+                }
+            } catch let error {
+                print("Error:", error)
+            }
+            DispatchQueue.main.async {
+                self.lightsTableView.reloadData()
+            }
+            }.resume()
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -48,15 +84,29 @@ class CreateRoomViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return lightArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = lightsTableView.dequeueReusableCell(withIdentifier: "CreateRoomCell") as! CreateRoomCell
+        cell.setLightInfo(lightInfo: lightArray[indexPath.row])
+        if cell.checkBoxButton.isSelected == true {
+            self.lightsToBeAdded.append(lightArray[indexPath.row].key)
+            print(lightsToBeAdded)
+        }
+        if cell.checkBoxButton.isSelected != true {
+            if let index = lightsToBeAdded.firstIndex(of: lightArray[indexPath.row].key) {
+                lightsToBeAdded.remove(at: index)
+                print(lightsToBeAdded)
+            }
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Lights selection"
     }
+    
+    
+    
 }
