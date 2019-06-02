@@ -31,6 +31,10 @@ class RoomSetupViewController: UIViewController, UITableViewDelegate, UITableVie
         getRoomSetup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        getRoomSetup()
+    }
+    
     @IBAction func closeRoomSetup(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
