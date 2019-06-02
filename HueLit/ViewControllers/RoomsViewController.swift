@@ -15,9 +15,9 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var roomsTableView: UITableView!
     let jsonUrl = "http:192.168.1.225/api/mooY-Ctmw5-YSLO4m0Uyw30BBAvzjJYInxzmCzA8/groups"
     //let jsonUrl = "http:\(bridgeIp!)/api/\(bridgeUser!)/groups"
-    var roomJSON : JSON? = JSON.null
+//    var roomJSON : JSON? = JSON.null
     var roomInfo : [String:RoomInfo] = [:]
-    var rooms : [RoomInfo] = []
+//    var rooms : [RoomInfo] = []
     let bridgeUser = UserDefaults.standard.string(forKey: "bridgeUser")
     let bridgeIp = UserDefaults.standard.string(forKey: "bridgeIp")
     var roomArray : [(key: String, val: RoomInfo)] = []
@@ -59,7 +59,6 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         alert.addAction(UIAlertAction(title: "Room setup", style: .default, handler: { (_) in
             print("User clicked RoomSetup")
             let roomSetupVC = self.storyboard?.instantiateViewController(withIdentifier: "roomSetupVC") as! RoomSetupViewController
-            roomSetupVC.roomArray = self.roomArray
             self.present(roomSetupVC, animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "Light setup", style: .default, handler: { (_) in
