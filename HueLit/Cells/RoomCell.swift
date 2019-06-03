@@ -33,7 +33,7 @@ class RoomCell: UITableViewCell {
         self.room = roomInfo
         roomNameLabel.text = room.val.name
         lightsInfoLabel.text = "All lights are of!"
-        if room.val.state.all_on || room.val.state.any_on {
+        if room.val.state?.all_on ?? false || room.val.state?.any_on ?? false {
             lightSwitch.isOn = true
         } else {
             lightSwitch.isOn = false
