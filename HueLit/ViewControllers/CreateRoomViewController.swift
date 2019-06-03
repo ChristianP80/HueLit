@@ -34,6 +34,10 @@ class CreateRoomViewController: UIViewController, UITableViewDelegate, UITableVi
         print(lightArray.count)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        getAllLights()
+    }
+    
     func getAllLights() {
         guard let url = URL(string: jsonUrl) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -76,6 +80,12 @@ class CreateRoomViewController: UIViewController, UITableViewDelegate, UITableVi
     {
         view.endEditing(true)
     }
+    
+    @IBAction func searchLightsButton(_ sender: Any) {
+        let searchNewLightsVC = self.storyboard?.instantiateViewController(withIdentifier: "searchNewLights") as! SearchNewLightsViewController
+        self.present(searchNewLightsVC, animated: true, completion: nil)
+    }
+    
 
     @IBAction func cancelCreate(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -84,8 +94,7 @@ class CreateRoomViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBAction func saveRoom(_ sender: Any) {
         let roomName = roomNameTextField.text!
         let roomType = typeOfRoomLabel.text!
-//        let json : [String : Any] = ["name": roomName, "type": "Room", "class": roomType, "lights": lightsToBeAdded]
-        let json : [String : Any] = ["name": roomName, "type": "Room", "class": roomType]
+        let json : [String : Any] = ["name": roomName, "type": "Room", "class": roomType, "lights": lightsToBeAdded]
 
         guard let url = URL(string: createUrl) else { return }
         var request = URLRequest(url: url)
