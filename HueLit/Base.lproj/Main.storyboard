@@ -177,54 +177,63 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="roomCell" rowHeight="60" id="2Ww-8r-kmv" customClass="RoomCell" customModule="HueLit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="roomCell" rowHeight="100" id="2Ww-8r-kmv" customClass="RoomCell" customModule="HueLit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Ww-8r-kmv" id="urs-J4-CHw">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0tx-Je-zVX">
                                                     <rect key="frame" x="10" y="0.0" width="60" height="60"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="60" id="zBH-7W-qIH"/>
+                                                        <constraint firstAttribute="width" constant="60" id="5e8-i0-DsL"/>
+                                                        <constraint firstAttribute="height" constant="60" id="XWE-Zt-5H0"/>
                                                     </constraints>
                                                 </imageView>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a9T-tg-Fsa">
-                                                    <rect key="frame" x="301" y="15" width="51" height="30"/>
+                                                    <rect key="frame" x="301" y="15" width="51" height="70"/>
                                                     <connections>
                                                         <action selector="lightSwitchPressed:" destination="2Ww-8r-kmv" eventType="valueChanged" id="se4-F5-RuD"/>
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LightsInfoLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIM-jf-rez">
-                                                    <rect key="frame" x="78" y="33" width="215" height="16"/>
+                                                    <rect key="frame" x="70" y="35" width="223" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RoomNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxR-Mf-Ys1">
-                                                    <rect key="frame" x="78" y="11" width="215" height="24"/>
+                                                    <rect key="frame" x="70" y="11" width="223" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="254" translatesAutoresizingMaskIntoConstraints="NO" id="hcw-xp-SzF" customClass="CustomSlider" customModule="HueLit" customModuleProvider="target">
+                                                    <rect key="frame" x="3" y="70" width="369" height="31"/>
+                                                </slider>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="0tx-Je-zVX" firstAttribute="top" secondItem="urs-J4-CHw" secondAttribute="top" id="0y2-mI-xAC"/>
                                                 <constraint firstItem="a9T-tg-Fsa" firstAttribute="leading" secondItem="YxR-Mf-Ys1" secondAttribute="trailing" constant="8" id="1nS-Bf-srw"/>
-                                                <constraint firstItem="YxR-Mf-Ys1" firstAttribute="leading" secondItem="0tx-Je-zVX" secondAttribute="trailing" constant="8" id="6D3-Ph-Dwh"/>
-                                                <constraint firstItem="0tx-Je-zVX" firstAttribute="top" secondItem="urs-J4-CHw" secondAttribute="top" id="CBe-eh-hqO"/>
+                                                <constraint firstItem="0tx-Je-zVX" firstAttribute="leading" secondItem="urs-J4-CHw" secondAttribute="leading" constant="10" id="DJc-ED-lVH"/>
                                                 <constraint firstItem="YxR-Mf-Ys1" firstAttribute="top" secondItem="urs-J4-CHw" secondAttribute="topMargin" id="JI3-iJ-hKi"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="a9T-tg-Fsa" secondAttribute="bottom" constant="4" id="K65-bc-euG"/>
-                                                <constraint firstItem="a9T-tg-Fsa" firstAttribute="leading" secondItem="fIM-jf-rez" secondAttribute="trailing" constant="8" id="RZV-dc-MeP"/>
+                                                <constraint firstAttribute="trailing" secondItem="hcw-xp-SzF" secondAttribute="trailing" constant="5" id="P5g-Y1-gtW"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="a9T-tg-Fsa" secondAttribute="trailing" constant="10" id="TAM-SC-g1J"/>
-                                                <constraint firstItem="fIM-jf-rez" firstAttribute="bottom" secondItem="urs-J4-CHw" secondAttribute="bottomMargin" id="dc7-kq-I2k"/>
-                                                <constraint firstItem="fIM-jf-rez" firstAttribute="leading" secondItem="0tx-Je-zVX" secondAttribute="trailing" constant="8" id="ekn-WW-6dP"/>
-                                                <constraint firstItem="0tx-Je-zVX" firstAttribute="leading" secondItem="urs-J4-CHw" secondAttribute="leading" constant="10" id="f9v-e7-s9D"/>
-                                                <constraint firstAttribute="bottom" secondItem="0tx-Je-zVX" secondAttribute="bottom" id="jME-nc-0Oi"/>
+                                                <constraint firstItem="fIM-jf-rez" firstAttribute="top" secondItem="YxR-Mf-Ys1" secondAttribute="bottom" id="V5c-8p-uzg"/>
+                                                <constraint firstItem="YxR-Mf-Ys1" firstAttribute="leading" secondItem="0tx-Je-zVX" secondAttribute="trailing" id="Wu8-Cp-Lbv"/>
+                                                <constraint firstItem="a9T-tg-Fsa" firstAttribute="leading" secondItem="fIM-jf-rez" secondAttribute="trailing" constant="8" id="Yzi-b7-jJb"/>
+                                                <constraint firstItem="fIM-jf-rez" firstAttribute="leading" secondItem="0tx-Je-zVX" secondAttribute="trailing" id="Z8N-QN-OAw"/>
+                                                <constraint firstAttribute="bottom" secondItem="hcw-xp-SzF" secondAttribute="bottom" id="fgR-WX-yPo"/>
+                                                <constraint firstAttribute="bottom" secondItem="0tx-Je-zVX" secondAttribute="bottom" constant="40" id="iOV-Mw-swF"/>
+                                                <constraint firstItem="hcw-xp-SzF" firstAttribute="leading" secondItem="urs-J4-CHw" secondAttribute="leading" constant="5" id="j4z-XN-sFC"/>
                                                 <constraint firstItem="a9T-tg-Fsa" firstAttribute="top" secondItem="urs-J4-CHw" secondAttribute="topMargin" constant="4" id="rDW-2P-5cf"/>
+                                                <constraint firstItem="hcw-xp-SzF" firstAttribute="top" secondItem="0tx-Je-zVX" secondAttribute="bottom" constant="10" id="w4O-cW-NR4"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="lightSlider" destination="hcw-xp-SzF" id="2se-DF-vkf"/>
                                             <outlet property="lightSwitch" destination="a9T-tg-Fsa" id="qQj-vX-cS3"/>
                                             <outlet property="lightsInfoLabel" destination="fIM-jf-rez" id="CWn-J4-AEQ"/>
                                             <outlet property="roomNameLabel" destination="YxR-Mf-Ys1" id="hFl-Pv-LPO"/>

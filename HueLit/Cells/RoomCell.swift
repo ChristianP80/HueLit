@@ -18,6 +18,7 @@ class RoomCell: UITableViewCell {
     @IBOutlet weak var roomNameLabel: UILabel!
     @IBOutlet weak var lightsInfoLabel: UILabel!
     @IBOutlet weak var lightSwitch: UISwitch!
+    @IBOutlet weak var lightSlider: CustomSlider!
     
     var delegate : RoomCellDelegate?
     var room : (key: String, val: RoomInfo)!
@@ -25,18 +26,21 @@ class RoomCell: UITableViewCell {
     func setCellLayout(cell: RoomCell) {
         cell.layer.borderWidth = 5.0
         cell.layer.borderColor = UIColor.black.cgColor
-        cell.layer.cornerRadius = 25
+        cell.layer.cornerRadius = 15
         cell.backgroundColor = UIColor.lightGray
     }
     
     func setRoomInfo(roomInfo: (key: String, val: RoomInfo)) {
         self.room = roomInfo
+        
         roomNameLabel.text = room.val.name
         if room.val.state?.all_on ?? false || room.val.state?.any_on ?? false {
             lightSwitch.isOn = true
+            lightSlider.isHidden = false
             lightsInfoLabel.text = "Lights are on"
         } else {
             lightSwitch.isOn = false
+            lightSlider.isHidden = true
             lightsInfoLabel.text = "Lights are off"
         }
     }
