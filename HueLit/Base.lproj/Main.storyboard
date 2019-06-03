@@ -198,19 +198,22 @@
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LightsInfoLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIM-jf-rez">
-                                                    <rect key="frame" x="70" y="35" width="223" height="16"/>
+                                                    <rect key="frame" x="78" y="35" width="215" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RoomNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxR-Mf-Ys1">
-                                                    <rect key="frame" x="70" y="11" width="223" height="24"/>
+                                                    <rect key="frame" x="78" y="11" width="215" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="254" translatesAutoresizingMaskIntoConstraints="NO" id="hcw-xp-SzF" customClass="CustomSlider" customModule="HueLit" customModuleProvider="target">
                                                     <rect key="frame" x="3" y="70" width="369" height="31"/>
+                                                    <connections>
+                                                        <action selector="lightSliderChanged:forEvent:" destination="2Ww-8r-kmv" eventType="valueChanged" id="O2n-56-jPX"/>
+                                                    </connections>
                                                 </slider>
                                             </subviews>
                                             <constraints>
@@ -222,9 +225,9 @@
                                                 <constraint firstAttribute="trailing" secondItem="hcw-xp-SzF" secondAttribute="trailing" constant="5" id="P5g-Y1-gtW"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="a9T-tg-Fsa" secondAttribute="trailing" constant="10" id="TAM-SC-g1J"/>
                                                 <constraint firstItem="fIM-jf-rez" firstAttribute="top" secondItem="YxR-Mf-Ys1" secondAttribute="bottom" id="V5c-8p-uzg"/>
-                                                <constraint firstItem="YxR-Mf-Ys1" firstAttribute="leading" secondItem="0tx-Je-zVX" secondAttribute="trailing" id="Wu8-Cp-Lbv"/>
+                                                <constraint firstItem="YxR-Mf-Ys1" firstAttribute="leading" secondItem="0tx-Je-zVX" secondAttribute="trailing" constant="8" id="Wu8-Cp-Lbv"/>
                                                 <constraint firstItem="a9T-tg-Fsa" firstAttribute="leading" secondItem="fIM-jf-rez" secondAttribute="trailing" constant="8" id="Yzi-b7-jJb"/>
-                                                <constraint firstItem="fIM-jf-rez" firstAttribute="leading" secondItem="0tx-Je-zVX" secondAttribute="trailing" id="Z8N-QN-OAw"/>
+                                                <constraint firstItem="fIM-jf-rez" firstAttribute="leading" secondItem="0tx-Je-zVX" secondAttribute="trailing" constant="8" id="Z8N-QN-OAw"/>
                                                 <constraint firstAttribute="bottom" secondItem="hcw-xp-SzF" secondAttribute="bottom" id="fgR-WX-yPo"/>
                                                 <constraint firstAttribute="bottom" secondItem="0tx-Je-zVX" secondAttribute="bottom" constant="40" id="iOV-Mw-swF"/>
                                                 <constraint firstItem="hcw-xp-SzF" firstAttribute="leading" secondItem="urs-J4-CHw" secondAttribute="leading" constant="5" id="j4z-XN-sFC"/>

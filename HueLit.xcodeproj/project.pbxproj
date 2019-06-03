@@ -136,7 +136,7 @@
 		3DA68686228E9D5000862AF3 /* HueLit */ = {
 			isa = PBXGroup;
 			children = (
-				3DB3463222A52A5F009BE662 /* Custom Components */,
+				3DB3463222A52A5F009BE662 /* CustomComponents */,
 				3D61E4032299EA83009D6202 /* Models */,
 				3D61E4002299E1CD009D6202 /* Cells */,
 				3DA68699228ECBBD00862AF3 /* ViewControllers */,
@@ -197,12 +197,12 @@
 			path = Bridge;
 			sourceTree = "<group>";
 		};
-		3DB3463222A52A5F009BE662 /* Custom Components */ = {
+		3DB3463222A52A5F009BE662 /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
 				3DB3463322A52A92009BE662 /* CustomSlider.swift */,
 			);
-			path = "Custom Components";
+			path = CustomComponents;
 			sourceTree = "<group>";
 		};
 		C6E673FE23AF5DE27FC00ACB /* Frameworks */ = {
