@@ -14,6 +14,8 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     @IBOutlet weak var roomsTableView: UITableView!
     let jsonUrl = "http:192.168.1.225/api/mooY-Ctmw5-YSLO4m0Uyw30BBAvzjJYInxzmCzA8/groups"
+    let changeStateURL = "http:192.168.1.225/api/mooY-Ctmw5-YSLO4m0Uyw30BBAvzjJYInxzmCzA8/groups/action"
+//    /api/<username>/groups/<id>/action
     //let jsonUrl = "http:\(bridgeIp!)/api/\(bridgeUser!)/groups"
 //    var roomJSON : JSON? = JSON.null
     var roomInfo : [String:RoomInfo] = [:]
@@ -89,6 +91,7 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = roomsTableView.dequeueReusableCell(withIdentifier: "roomCell") as! RoomCell
         cell.delegate = self
         cell.setCellLayout(cell: cell)
+//        cell.addSliderTarget()
         cell.setRoomInfo(roomInfo: roomArray[indexPath.row])
         return cell
     }
@@ -107,14 +110,41 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
 }
 
 extension RoomsViewController : RoomCellDelegate {
+
+    func didChangeLightSlider(sender: CustomSlider, room: (key: String, val: RoomInfo), event: UIEvent) {
+        print(sender.value)
+        sender.isContinuous = true
+        if let touchEvent = event.allTouches?.first {
+            switch touchEvent.phase {
+            case .began:
+                print("began")
+            //                slider.trackHeight = 100
+            case .moved:
+                print("moved")
+//                let bri = UInt8(sender.value)
+//                print(bri)
+//                changeLightState(room: room, bri: bri)
+            //                slider.trackHeight = 100
+            case .ended:
+                print("ended")
+                let bri = UInt8(sender.value)
+                print(bri)
+                changeLightState(room: room, bri: bri)
+            //                slider.trackHeight = 25
+            default:
+                break
+            }
+        }
+    }
+
     func didtapLightSwitch(isOn: Bool, room: (key: String, val: RoomInfo)){
         print(room.key)
         print(room)
         print(isOn)
         let jsonUrl = "http:192.168.1.225/api/u2q1iWISCdcW2bOee7ixyRlli9Sd5p-G4PM0ZNUI/groups/\(room.key)/action"
         let body = ["on": isOn]
-        let url = URL(string: jsonUrl)
-        var request = URLRequest(url: url!)
+        guard let url = URL(string: jsonUrl) else { return }
+        var request = URLRequest(url: url)
         request.httpMethod = "PUT"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let jsonData = try! JSONSerialization.data(withJSONObject: body, options: [])
@@ -126,12 +156,21 @@ extension RoomsViewController : RoomCellDelegate {
         }.resume()
         self.searchForRooms()
     }
+    
+    func changeLightState(room: (key: String, val: RoomInfo), bri: UInt8) {
+        let jsonUrl = "http:192.168.1.225/api/u2q1iWISCdcW2bOee7ixyRlli9Sd5p-G4PM0ZNUI/groups/\(room.key)/action"
+        let body = ["bri": bri]
+        guard let url = URL(string: jsonUrl) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let jsonData = try! JSONSerialization.data(withJSONObject: body, options: [])
+        URLSession.shared.uploadTask(with: request, from: jsonData) { (data, response, error) in
+            guard let response = response as? HTTPURLResponse else { return }
+            if (200...209).contains(response.statusCode) {
+                
+            }
+        }.resume()
+    }
 }
 
-
-//http://192.168.1.225/api/CX0XuJlmCpBkjKepii0zJl6P3i7J77-dduoNjiTM/groups/1/action
-//875058
-//D66B18
-//
-
-//från fjället CX0XuJlmCpBkjKepii0zJl6P3i7J77-dduoNjiTM
