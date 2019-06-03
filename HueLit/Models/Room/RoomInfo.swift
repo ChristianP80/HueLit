@@ -13,8 +13,8 @@ struct RoomInfo: Decodable {
     let lights: [String]
     let sensors: [String]
     let type: String
-    let state: RoomState
-    let recycle: Bool
+    let state: RoomState?
+    let recycle: Bool?
     let `class` : String
-    let action: RoomAction
+    let action: RoomAction?
 }
