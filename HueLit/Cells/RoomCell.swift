@@ -10,6 +10,7 @@ import UIKit
 
 protocol RoomCellDelegate {
     func didtapLightSwitch(isOn: Bool, room: (key: String, val: RoomInfo ))
+    func didChangeLightSlider(sender: CustomSlider, room: (key: String, val: RoomInfo), event: UIEvent)
 }
 
 class RoomCell: UITableViewCell {
@@ -30,9 +31,12 @@ class RoomCell: UITableViewCell {
         cell.backgroundColor = UIColor.lightGray
     }
     
+//    func addSliderTarget() {
+//        lightSlider.addTarget(self, action: #selector(lightSliderChanged(_:forEvent:)), for: .valueChanged)
+//    }
+    
     func setRoomInfo(roomInfo: (key: String, val: RoomInfo)) {
         self.room = roomInfo
-        
         roomNameLabel.text = room.val.name
         if room.val.state?.all_on ?? false || room.val.state?.any_on ?? false {
             lightSwitch.isOn = true
@@ -49,4 +53,7 @@ class RoomCell: UITableViewCell {
         delegate?.didtapLightSwitch(isOn: sender.isOn, room: room)
     }
     
+    @IBAction func lightSliderChanged(_ sender: CustomSlider, forEvent event: UIEvent) {
+        delegate?.didChangeLightSlider(sender: sender, room: room, event: event)
+    }
 }
