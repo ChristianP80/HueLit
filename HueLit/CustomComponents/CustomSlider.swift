@@ -10,7 +10,7 @@ import UIKit
 
 class CustomSlider: UISlider {
 
-    @IBInspectable var trackHeight: CGFloat = 25
+    var trackHeight: CGFloat = 25
     
     override func trackRect(forBounds bounds: CGRect) -> CGRect {
         //set your bounds here
