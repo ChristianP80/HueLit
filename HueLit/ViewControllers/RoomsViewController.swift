@@ -90,7 +90,7 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if roomArray[indexPath.row].val.state.all_on || roomArray[indexPath.row].val.state.any_on {
+        if roomArray[indexPath.row].val.state?.all_on ?? false || roomArray[indexPath.row].val.state?.any_on ?? false {
             return 70
         } else{
             return 60
