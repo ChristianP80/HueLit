@@ -9,15 +9,76 @@
 import UIKit
 
 class SearchNewLightsViewController: UIViewController {
-
+    
+    @IBOutlet weak var serialNumber1Label: UITextField!
+    @IBOutlet weak var serialNumber2Label: UITextField!
+    @IBOutlet weak var serialNumber3Label: UITextField!
+    @IBOutlet weak var serialNumber4Label: UITextField!
+    @IBOutlet weak var serialNumber5Label: UITextField!
+    
+    var snArray : [String] = []
+    let jsonUrl = "http:192.168.1.225/api/mooY-Ctmw5-YSLO4m0Uyw30BBAvzjJYInxzmCzA8/lights"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func cancelNewLights(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func searchForNewLights(_ sender: Any) {
+        snArray = []
+        createArray()
+        print(snArray)
+        
+        guard let url = URL(string: jsonUrl) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        do{
+            print("Trying to search for new lights")
+            let object = ["deviceid": snArray]
+            let jsonData = try JSONSerialization.data(withJSONObject: object)
+            request.httpBody = jsonData
+        } catch let error{
+            print(error.localizedDescription)
+        }
+        URLSession.shared.dataTask(with: request) {data, response, error in
+            guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
+                print("Server error!")
+                return
+            }
+            print("Lights were found")
+            print(response)
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                print(json)
+            } catch {
+                print("JSON error: \(error.localizedDescription)")
+            }
+//            DispatchQueue.main.async {
+//                self.dismiss(animated: true, completion: nil)
+//            }
+            }.resume()
+    }
+    
+    func createArray() {
+        if serialNumber1Label.hasText {
+            snArray.append(serialNumber1Label.text!)
+        }
+        if serialNumber2Label.hasText {
+            snArray.append(serialNumber2Label.text!)
+        }
+        if serialNumber3Label.hasText {
+            snArray.append(serialNumber3Label.text!)
+        }
+        if serialNumber4Label.hasText {
+            snArray.append(serialNumber4Label.text!)
+        }
+        if serialNumber5Label.hasText {
+            snArray.append(serialNumber5Label.text!)
+        }
     }
     
 }
