@@ -31,6 +31,10 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         roomsTableView.reloadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        searchForRooms()
+    }
+    
     func searchForRooms() {
         guard let url = URL(string: jsonUrl) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
