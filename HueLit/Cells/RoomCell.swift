@@ -31,10 +31,6 @@ class RoomCell: UITableViewCell {
         cell.backgroundColor = UIColor.lightGray
     }
     
-//    func addSliderTarget() {
-//        lightSlider.addTarget(self, action: #selector(lightSliderChanged(_:forEvent:)), for: .valueChanged)
-//    }
-    
     func setRoomInfo(roomInfo: (key: String, val: RoomInfo)) {
         self.room = roomInfo
         guard let sliderValue = (roomInfo.val.action?.bri) else { return }
