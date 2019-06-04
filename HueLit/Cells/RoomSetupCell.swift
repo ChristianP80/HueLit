@@ -25,6 +25,7 @@ class RoomSetupCell: UITableViewCell {
     
     func setRoomInfo(roomInfo: (key: String, val: RoomInfo)) {
         self.room = roomInfo
+        roomImageView.image = UIImage(named: "rooms\(room.val.class)")
         roomNameLabel.text = room.val.name
         numberOfLightsLabel.text = "\(room.val.lights.count) lights available"
     }

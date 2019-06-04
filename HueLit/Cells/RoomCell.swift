@@ -36,7 +36,7 @@ class RoomCell: UITableViewCell {
         guard let sliderValue = (roomInfo.val.action?.bri) else { return }
         lightSlider.value = Float(sliderValue)
         roomNameLabel.text = room.val.name
-        roomTytpeImage.image = UIImage(named: "rooms\(roomInfo.val.class)")
+        roomTytpeImage.image = UIImage(named: "rooms\(room.val.class)")
         if room.val.state?.all_on ?? false || room.val.state?.any_on ?? false {
             lightSwitch.isOn = true
             lightSlider.isHidden = false
