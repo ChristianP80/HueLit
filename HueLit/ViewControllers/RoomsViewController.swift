@@ -91,7 +91,6 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = roomsTableView.dequeueReusableCell(withIdentifier: "roomCell") as! RoomCell
         cell.delegate = self
         cell.setCellLayout(cell: cell)
-//        cell.addSliderTarget()
         cell.setRoomInfo(roomInfo: roomArray[indexPath.row])
         return cell
     }
