@@ -26,7 +26,7 @@ class RoomCell: UITableViewCell {
     
     func setCellLayout(cell: RoomCell) {
         cell.layer.borderWidth = 5.0
-        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderColor = UIColor.darkGray.cgColor
         cell.layer.cornerRadius = 15
         cell.backgroundColor = UIColor.lightGray
     }
@@ -37,7 +37,10 @@ class RoomCell: UITableViewCell {
     
     func setRoomInfo(roomInfo: (key: String, val: RoomInfo)) {
         self.room = roomInfo
+        guard let sliderValue = (roomInfo.val.action?.bri) else { return }
+        lightSlider.value = Float(sliderValue)
         roomNameLabel.text = room.val.name
+        roomTytpeImage.image = UIImage(named: "rooms\(roomInfo.val.class)")
         if room.val.state?.all_on ?? false || room.val.state?.any_on ?? false {
             lightSwitch.isOn = true
             lightSlider.isHidden = false
