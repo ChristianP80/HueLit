@@ -26,7 +26,7 @@ class RoomCell: UITableViewCell {
     
     func setCellLayout(cell: RoomCell) {
         cell.layer.borderWidth = 5.0
-        cell.layer.borderColor = UIColor.darkGray.cgColor
+        cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.cornerRadius = 15
         cell.backgroundColor = UIColor.lightGray
     }
