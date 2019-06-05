@@ -159,7 +159,7 @@
                                 </items>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7PH-Fm-ibR">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="add" id="crg-Ws-XiL">
                                         <connections>
@@ -169,8 +169,8 @@
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bgI-IA-tgi">
-                                <rect key="frame" x="0.0" y="88" width="375" height="675"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="132" width="375" height="631"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="roomCell" rowHeight="100" id="2Ww-8r-kmv" customClass="RoomCell" customModule="HueLit" customModuleProvider="target">
@@ -196,13 +196,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LightsInfoLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIM-jf-rez">
                                                     <rect key="frame" x="48" y="35" width="245" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RoomNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxR-Mf-Ys1">
                                                     <rect key="frame" x="48" y="11" width="245" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="254" translatesAutoresizingMaskIntoConstraints="NO" id="hcw-xp-SzF" customClass="CustomSlider" customModule="HueLit" customModuleProvider="target">
@@ -212,6 +212,7 @@
                                                     </connections>
                                                 </slider>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="a9T-tg-Fsa" firstAttribute="leading" secondItem="YxR-Mf-Ys1" secondAttribute="trailing" constant="8" id="1nS-Bf-srw"/>
                                                 <constraint firstItem="YxR-Mf-Ys1" firstAttribute="leading" secondItem="0tx-Je-zVX" secondAttribute="trailing" constant="8" id="8aU-BY-KJl"/>
@@ -255,13 +256,107 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="H6W-Kt-bYQ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Wik-Aw-Wdg"/>
                     <connections>
                         <outlet property="roomsTableView" destination="bgI-IA-tgi" id="vBn-Kp-hN6"/>
+                        <segue destination="eRC-zO-zCV" kind="show" identifier="changeColor" id="sYd-d5-kV7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zRP-0b-EdG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4528.8000000000002" y="138.91625615763547"/>
+            <point key="canvasLocation" x="5471.1999999999998" y="138.91625615763547"/>
+        </scene>
+        <!--Selected Room View Controller-->
+        <scene sceneID="FtM-Ud-muU">
+            <objects>
+                <viewController storyboardIdentifier="selectedRoomVC" id="eRC-zO-zCV" customClass="SelectedRoomViewController" customModule="HueLit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kyl-by-EGs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0bF-pZ-MJp">
+                                <rect key="frame" x="74.666666666666686" y="371" width="226" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qz2-mG-cEP" customClass="RoundButton" customModule="HueLit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="X8b-hD-5nh"/>
+                                            <constraint firstAttribute="height" constant="70" id="a8v-Hw-Ttm"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="changeColor:" destination="eRC-zO-zCV" eventType="touchUpInside" id="m5W-X8-9wC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqa-cQ-qd4" customClass="RoundButton" customModule="HueLit" customModuleProvider="target">
+                                        <rect key="frame" x="77.999999999999986" y="0.0" width="70.000000000000014" height="70"/>
+                                        <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.32175358695012363" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="Z2j-rr-mSE"/>
+                                            <constraint firstAttribute="width" constant="70" id="bmu-T4-fY6"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="changeColor:" destination="eRC-zO-zCV" eventType="touchUpInside" id="yTb-g5-Xap"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2R-Sc-7Xz" customClass="RoundButton" customModule="HueLit" customModuleProvider="target">
+                                        <rect key="frame" x="156" y="0.0" width="70" height="70"/>
+                                        <color key="backgroundColor" red="0.0" green="0.051177963712695007" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="IeA-5R-cyC"/>
+                                            <constraint firstAttribute="height" constant="70" id="N58-Ix-khu"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="changeColor:" destination="eRC-zO-zCV" eventType="touchUpInside" id="uAc-QO-HPd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0bF-pZ-MJp" firstAttribute="centerX" secondItem="kyl-by-EGs" secondAttribute="centerX" id="Fv4-BD-rGQ"/>
+                            <constraint firstItem="0bF-pZ-MJp" firstAttribute="centerY" secondItem="kyl-by-EGs" secondAttribute="centerY" id="NVi-nL-w0r"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="U2w-mh-vJT"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pZD-l0-o3Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5471" y="865"/>
         </scene>
         <!--Room Setup View Controller-->
         <scene sceneID="Sdd-Vx-0si">
@@ -365,7 +460,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CiJ-sf-Sh5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5318" y="-521"/>
+            <point key="canvasLocation" x="6279" y="140"/>
         </scene>
         <!--Search New Lights View Controller-->
         <scene sceneID="oUm-ZH-Qa2">
@@ -547,7 +642,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vVX-nL-uzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6860" y="-522.41379310344826"/>
+            <point key="canvasLocation" x="7958" y="139"/>
         </scene>
         <!--Create Room View Controller-->
         <scene sceneID="flC-B5-haL">
@@ -732,7 +827,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ydy-91-ugi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6104.8000000000002" y="-522.41379310344826"/>
+            <point key="canvasLocation" x="7143" y="140"/>
         </scene>
         <!--Connect Bridge View Controller-->
         <scene sceneID="KRE-gL-ezV">
@@ -809,6 +904,24 @@
             </objects>
             <point key="canvasLocation" x="152" y="139"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sJY-hk-csV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0cY-iq-PXj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jk3-6V-VGH">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3MS-88-eXI" kind="relationship" relationship="rootViewController" id="gIw-XR-lzj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XYB-SE-9FU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4528.8000000000002" y="138.91625615763547"/>
+        </scene>
     </scenes>
     <resources>
         <image name="background" width="444" height="794"/>
@@ -818,6 +931,6 @@
         <image name="pushlink_bridge" width="342" height="328"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="har-gx-n9y"/>
+        <segue reference="yQS-ab-80M"/>
     </inferredMetricsTieBreakers>
 </document>
