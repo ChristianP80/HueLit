@@ -29,7 +29,7 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         searchForRooms()
         roomsTableView.delegate = self
         roomsTableView.dataSource = self
-        roomsTableView.backgroundColor = UIColor.darkGray
+//        roomsTableView.backgroundColor = UIColor.darkGray
         roomsTableView.reloadData()
     }
     
@@ -83,6 +83,14 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         })
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "changeColor" {
+            let selectedRoomVC = segue.destination as! SelectedRoomViewController
+            let index = roomsTableView.indexPathForSelectedRow?.row
+            selectedRoomVC.room = roomArray[index!]
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return roomArray.count
     }
@@ -93,6 +101,12 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.setCellLayout(cell: cell)
         cell.setRoomInfo(roomInfo: roomArray[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let selectedRoomVC = self.storyboard?.instantiateViewController(withIdentifier: "selectedRoomVC") as! SelectedRoomViewController
+//        self.present(selectedRoomVC, animated: true, completion: nil)
+        performSegue(withIdentifier: "changeColor", sender: self)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
