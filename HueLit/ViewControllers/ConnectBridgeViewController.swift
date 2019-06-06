@@ -26,10 +26,6 @@ class ConnectBridgeViewController: UIViewController, UITableViewDelegate, UITabl
         animateTable()
     }
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return bridges.count
-//    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bridges.count
     }
@@ -45,6 +41,10 @@ class ConnectBridgeViewController: UIViewController, UITableViewDelegate, UITabl
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 5
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         defaults.set(bridges[indexPath.row].internalipaddress, forKey: "bridgeIp")
         performSegue(withIdentifier: "tableViewPushLink", sender: self)
@@ -57,10 +57,7 @@ class ConnectBridgeViewController: UIViewController, UITableViewDelegate, UITabl
             pushLinkVC.bridge = bridges[index!]
         }
     }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 5
-    }
-    
+
     func animateTable(){
         bridgeTableView.reloadData()
         let cells = bridgeTableView.visibleCells
