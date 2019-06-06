@@ -13,24 +13,22 @@ import SwiftyJSON
 class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var roomsTableView: UITableView!
+    @IBOutlet weak var roomsNavBar: UINavigationBar!
+    
     let jsonUrl = "http:192.168.1.225/api/mooY-Ctmw5-YSLO4m0Uyw30BBAvzjJYInxzmCzA8/groups"
     let changeStateURL = "http:192.168.1.225/api/mooY-Ctmw5-YSLO4m0Uyw30BBAvzjJYInxzmCzA8/groups/action"
-//    /api/<username>/groups/<id>/action
-    //let jsonUrl = "http:\(bridgeIp!)/api/\(bridgeUser!)/groups"
-//    var roomJSON : JSON? = JSON.null
     var roomInfo : [String:RoomInfo] = [:]
-//    var rooms : [RoomInfo] = []
     let bridgeUser = UserDefaults.standard.string(forKey: "bridgeUser")
     let bridgeIp = UserDefaults.standard.string(forKey: "bridgeIp")
     var roomArray : [(key: String, val: RoomInfo)] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchForRooms()
+        roomsNavBar.topItem?.title = "Rooms"
         roomsTableView.delegate = self
         roomsTableView.dataSource = self
-//        roomsTableView.backgroundColor = UIColor.darkGray
         roomsTableView.reloadData()
+        searchForRooms()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -106,6 +104,7 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let selectedRoomVC = self.storyboard?.instantiateViewController(withIdentifier: "selectedRoomVC") as! SelectedRoomViewController
 //        self.present(selectedRoomVC, animated: true, completion: nil)
+        print(roomArray[indexPath.row].val.action)
         performSegue(withIdentifier: "changeColor", sender: self)
     }
     
@@ -115,10 +114,6 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         } else{
             return 60
         }
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "YOUR ROOMS"
     }
 }
 
