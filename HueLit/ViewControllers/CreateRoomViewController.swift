@@ -8,11 +8,12 @@
 
 import UIKit
 
-class CreateRoomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class CreateRoomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var lightsTableView: UITableView!
     @IBOutlet weak var roomNameTextField: UITextField!
     @IBOutlet weak var typeOfRoomLabel: UILabel!
+    @IBOutlet weak var roomTypePicker: UIPickerView!
     
     let bridgeUser = UserDefaults.standard.string(forKey: "bridgeUser")
     let bridgeIp = UserDefaults.standard.string(forKey: "bridgeIp")
@@ -21,16 +22,20 @@ class CreateRoomViewController: UIViewController, UITableViewDelegate, UITableVi
     var lightInfo : [String:LightInfo] = [:]
     var lightArray : [(key: String, val: LightInfo)] = []
     var lightsToBeAdded : [String] = []
+    var roomType : String = ""
+    let roomTypePickerData : [String] = ["Attic", "Bathroom", "Bedroom", "Computer", "Dining", "Garage", "Guestroom", "Gym", "Hallway", "Kidsbedroom", "Kitchen", "Laundryroom", "Living", "Mancave", "Office", "Other", "Staircase", "Studio", "Terrace", "Toilet", ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        roomTypePicker.delegate = self
+        roomTypePicker.dataSource = self
         roomNameTextField.delegate = self
         lightsTableView.delegate = self
         lightsTableView.dataSource = self
         lightsTableView.rowHeight = 60
+        lightsTableView.backgroundColor = UIColor.black
         setupKeyboardDismissRecognizer()
         getAllLights()
-        print(typeOfRoomLabel.text!)
         print(lightArray.count)
     }
     
@@ -93,7 +98,6 @@ class CreateRoomViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func saveRoom(_ sender: Any) {
         let roomName = roomNameTextField.text!
-        let roomType = typeOfRoomLabel.text!
         let json : [String : Any] = ["name": roomName, "type": "Room", "class": roomType, "lights": lightsToBeAdded]
 
         guard let url = URL(string: createUrl) else { return }
@@ -125,12 +129,36 @@ class CreateRoomViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = lightsTableView.dequeueReusableCell(withIdentifier: "CreateRoomCell") as! CreateRoomCell
         cell.delegate = self
+        cell.setCellLayout(cell: cell)
         cell.setLightInfo(lightInfo: lightArray[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Lights selection"
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = UIColor.black
+        let header : UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+        header.textLabel!.textColor = UIColor.white
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return roomTypePickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return roomTypePickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        roomType = roomTypePickerData[row]
+        print(roomType)
     }
 }
 
