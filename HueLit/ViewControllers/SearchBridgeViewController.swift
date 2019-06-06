@@ -20,6 +20,7 @@ class SearchBridgeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = true
         searchForBridge()
     }
     
@@ -41,8 +42,9 @@ class SearchBridgeViewController: UIViewController {
             print(response!)
             do {
                 self.bridgeInfo = try JSONDecoder().decode([BridgeInfo].self, from: data)
-                print(self.bridgeInfo[0].id!)
-                print(self.bridgeInfo[0].internalipaddress!)
+//                print(self.bridgeInfo[0].id!)
+//                print(self.bridgeInfo[0].internalipaddress!)
+                print(self.bridgeInfo)
                 print(self.bridgeInfo.count)
                 self.updateSearchUI()
             }catch let jsonError {
@@ -51,7 +53,7 @@ class SearchBridgeViewController: UIViewController {
         }.resume()
     }
     
-    @objc func updateSearchUI() {
+    func updateSearchUI() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.searchActivityIndicator.stopAnimating()
             self.searchActivityIndicator.isHidden = true
