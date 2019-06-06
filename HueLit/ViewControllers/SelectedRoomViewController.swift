@@ -21,11 +21,11 @@ class SelectedRoomViewController: UIViewController {
         var hue : Int = 0
         switch sender.tag {
         case 1:
-            hue = 65535
+            hue = 64201
         case 2:
-            hue = 25500
+            hue = 25600
         case 3:
-            hue = 46920
+            hue = 46586
         default:
             return
         }
@@ -48,6 +48,11 @@ class SelectedRoomViewController: UIViewController {
                 
             }
         }.resume()
+    }
+    
+    
+    @IBAction func closeSelectedRoom(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
