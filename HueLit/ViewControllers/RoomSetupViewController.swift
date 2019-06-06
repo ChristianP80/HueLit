@@ -11,7 +11,6 @@ import UIKit
 class RoomSetupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var roomSetupNavBar: UINavigationBar!
-    @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var roomTableView: UITableView!
     
     let jsonUrl = "http:192.168.1.225/api/mooY-Ctmw5-YSLO4m0Uyw30BBAvzjJYInxzmCzA8/groups"
@@ -26,8 +25,8 @@ class RoomSetupViewController: UIViewController, UITableViewDelegate, UITableVie
         roomTableView.dataSource = self
         roomTableView.estimatedRowHeight = 80
         roomTableView.rowHeight = 60
+        roomTableView.backgroundColor = UIColor.black
         roomSetupNavBar.topItem?.title = "Room Setup"
-        createButton.layer.cornerRadius = 5
         getRoomSetup()
     }
     
