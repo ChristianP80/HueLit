@@ -24,11 +24,13 @@ class CreateRoomCell: UITableViewCell {
     
     @IBAction func checkBoxTapped(_ sender: UIButton) {
         delegate?.didTapCheckBoxButton(sender: sender, light: light)
-//        if sender.isSelected {
-//            sender.isSelected = false
-//        } else {
-//            sender.isSelected = true
-//        }
+    }
+    
+    func setCellLayout(cell: CreateRoomCell) {
+        cell.layer.borderWidth = 5.0
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.cornerRadius = cell.frame.height / 4
+        cell.backgroundColor = UIColor.darkGray
     }
     
     func setLightInfo(lightInfo : (key: String, val: LightInfo)) {
