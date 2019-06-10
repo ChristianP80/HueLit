@@ -11,7 +11,6 @@ import UIKit
 class SearchBridgeViewController: UIViewController {
     let defaults = UserDefaults.standard
     let jsonUrl = "https://www.meethue.com/api/nupnp"
-//    var bridgeJSON : JSON? = JSON.null
     var bridgeInfo : [BridgeInfo] = []
     
     @IBOutlet weak var searchActivityIndicator: UIActivityIndicatorView!
