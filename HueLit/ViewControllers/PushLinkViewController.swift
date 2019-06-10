@@ -17,6 +17,7 @@ class PushLinkViewController: UIViewController {
     let defaults = UserDefaults.standard
     var url = String()
     var bridge : BridgeInfo? = nil
+    let bridgeIp = UserDefaults.standard.string(forKey: "bridgeIp") ?? String()
     let jsonBody : [String : Any] = ["devicetype" : "my_hue_app#\(UIDevice.current.name)"]
     var user : String?
     var isLooping : Bool = true
@@ -37,9 +38,7 @@ class PushLinkViewController: UIViewController {
     }
     
     func buildUrl() {
-        let ip = defaults.string(forKey: "bridgeIp") ?? String()
-        print(ip)
-        url = "http://\(ip)/api"
+        url = "http://\(bridgeIp)/api"
     }
     
     func getUser() {
@@ -64,6 +63,7 @@ class PushLinkViewController: UIViewController {
                         print("contains success")
                         self.user = jsonResponse[0]["success"]["username"].stringValue
                         self.defaults.set(jsonResponse[0]["success"]["username"].stringValue, forKey: "bridgeUser")
+
                         print(self.user!)
                         let roomsVC = self.storyboard?.instantiateViewController(withIdentifier: "roomsVC") as! RoomsViewController
                         self.present(roomsVC, animated: true, completion: nil)

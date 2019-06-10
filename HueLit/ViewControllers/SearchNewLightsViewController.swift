@@ -17,10 +17,17 @@ class SearchNewLightsViewController: UIViewController {
     @IBOutlet weak var serialNumber5Label: UITextField!
     
     var snArray : [String] = []
-    let jsonUrl = "http:192.168.1.225/api/mooY-Ctmw5-YSLO4m0Uyw30BBAvzjJYInxzmCzA8/lights"
+    let bridgeUser = UserDefaults.standard.string(forKey: "bridgeUser") ?? String()
+    let bridgeIp = UserDefaults.standard.string(forKey: "bridgeIp") ?? String()
+    var jsonUrl = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        buildJsonUrl()
+    }
+    
+    func buildJsonUrl() {
+        jsonUrl = "http:\(bridgeIp)/api/\(bridgeUser)/lights"
     }
     
     @IBAction func cancelNewLights(_ sender: Any) {

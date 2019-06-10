@@ -15,10 +15,10 @@ class CreateRoomViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var typeOfRoomLabel: UILabel!
     @IBOutlet weak var roomTypePicker: UIPickerView!
     
-    let bridgeUser = UserDefaults.standard.string(forKey: "bridgeUser")
-    let bridgeIp = UserDefaults.standard.string(forKey: "bridgeIp")
-    let jsonUrl = "http:192.168.1.225/api/mooY-Ctmw5-YSLO4m0Uyw30BBAvzjJYInxzmCzA8/lights"
-    let createUrl = "http:192.168.1.225/api/mooY-Ctmw5-YSLO4m0Uyw30BBAvzjJYInxzmCzA8/groups"
+    let bridgeUser = UserDefaults.standard.string(forKey: "bridgeUser") ?? String()
+    let bridgeIp = UserDefaults.standard.string(forKey: "bridgeIp") ?? String()
+    var jsonUrl = ""
+    var createUrl = ""
     var lightInfo : [String:LightInfo] = [:]
     var lightArray : [(key: String, val: LightInfo)] = []
     var lightsToBeAdded : [String] = []
@@ -27,6 +27,8 @@ class CreateRoomViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        buildJsonUrl()
+        buildCreateUrl()
         roomTypePicker.delegate = self
         roomTypePicker.dataSource = self
         roomNameTextField.delegate = self
@@ -41,6 +43,14 @@ class CreateRoomViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidAppear(_ animated: Bool) {
         getAllLights()
+    }
+    
+    func buildJsonUrl() {
+        jsonUrl = "http:\(bridgeIp)/api/\(bridgeUser)/lights"
+    }
+    
+    func buildCreateUrl() {
+        createUrl = "http:\(bridgeIp)/api/\(bridgeUser)/groups"
     }
     
     func getAllLights() {

@@ -11,12 +11,22 @@ import UIKit
 class SelectedRoomViewController: UIViewController {
 
     var room : (key: String, val: RoomInfo)? = nil
-    let changeStateURL = "http:192.168.1.225/api/mooY-Ctmw5-YSLO4m0Uyw30BBAvzjJYInxzmCzA8/groups/"
+    let bridgeUser = UserDefaults.standard.string(forKey: "bridgeUser") ?? String()
+    let bridgeIp = UserDefaults.standard.string(forKey: "bridgeIp") ?? String()
+//    let changeStateURL = "http:192.168.1.225/api/mooY-Ctmw5-YSLO4m0Uyw30BBAvzjJYInxzmCzA8/groups/"
+    var jsonUrl = ""
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        buildJsonUrl()
         print(room!)
     }
+    
+    func buildJsonUrl() {
+        jsonUrl = "http:\(bridgeIp)/api/\(bridgeUser)/groups/\(room!.key)/action"
+    }
+    
     @IBAction func changeColor(_ sender: RoundButton) {
         var hue : Int = 0
         switch sender.tag {
@@ -31,8 +41,6 @@ class SelectedRoomViewController: UIViewController {
         }
         print(hue)
         
-        
-        let jsonUrl = "http:192.168.1.225/api/u2q1iWISCdcW2bOee7ixyRlli9Sd5p-G4PM0ZNUI/groups/\(room!.key)/action"
         let body = ["hue": hue,
                     "on": true,
                     "bri": room!.val.action!.bri] as [String : Any]

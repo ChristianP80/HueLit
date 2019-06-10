@@ -15,15 +15,17 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var roomsTableView: UITableView!
     @IBOutlet weak var roomsNavBar: UINavigationBar!
     
-    let jsonUrl = "http:192.168.1.225/api/mooY-Ctmw5-YSLO4m0Uyw30BBAvzjJYInxzmCzA8/groups"
-    let changeStateURL = "http:192.168.1.225/api/mooY-Ctmw5-YSLO4m0Uyw30BBAvzjJYInxzmCzA8/groups/action"
+    var jsonUrl = ""
+    var changeStateUrl = ""
     var roomInfo : [String:RoomInfo] = [:]
-    let bridgeUser = UserDefaults.standard.string(forKey: "bridgeUser")
-    let bridgeIp = UserDefaults.standard.string(forKey: "bridgeIp")
+    let bridgeUser = UserDefaults.standard.string(forKey: "bridgeUser") ?? String()
+    let bridgeIp = UserDefaults.standard.string(forKey: "bridgeIp") ?? String()
     var roomArray : [(key: String, val: RoomInfo)] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        buildJsonUrl()
+        buildChangeStateUrl()
         roomsNavBar.topItem?.title = "Rooms"
         roomsTableView.delegate = self
         roomsTableView.dataSource = self
@@ -33,6 +35,14 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidAppear(_ animated: Bool) {
         searchForRooms()
+    }
+    
+    func buildJsonUrl() {
+        jsonUrl = "http:\(bridgeIp)/api/\(bridgeUser)/groups"
+    }
+    
+    func buildChangeStateUrl() {
+        changeStateUrl = "http:\(bridgeIp)/api/\(bridgeUser)/groups/action"
     }
     
     func searchForRooms() {

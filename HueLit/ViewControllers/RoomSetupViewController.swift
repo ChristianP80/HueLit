@@ -13,14 +13,16 @@ class RoomSetupViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var roomSetupNavBar: UINavigationBar!
     @IBOutlet weak var roomTableView: UITableView!
     
-    let jsonUrl = "http:192.168.1.225/api/mooY-Ctmw5-YSLO4m0Uyw30BBAvzjJYInxzmCzA8/groups"
+//    let jsonUrl = "http:192.168.1.225/api/mooY-Ctmw5-YSLO4m0Uyw30BBAvzjJYInxzmCzA8/groups"
+    var jsonUrl = ""
     var roomInfo : [String:RoomInfo] = [:]
     var roomArray : [(key: String, val: RoomInfo)] = []
-    let bridgeUser = UserDefaults.standard.string(forKey: "bridgeUser")
-    let bridgeIp = UserDefaults.standard.string(forKey: "bridgeIp")
+    let bridgeUser = UserDefaults.standard.string(forKey: "bridgeUser") ?? String()
+    let bridgeIp = UserDefaults.standard.string(forKey: "bridgeIp") ?? String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        buildJsonUrl()
         roomTableView.delegate = self
         roomTableView.dataSource = self
         roomTableView.estimatedRowHeight = 80
@@ -32,6 +34,10 @@ class RoomSetupViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewWillAppear(_ animated: Bool) {
         getRoomSetup()
+    }
+    
+    func buildJsonUrl() {
+        jsonUrl = "http:\(bridgeIp)/api/\(bridgeUser)/groups"
     }
     
     @IBAction func closeRoomSetup(_ sender: Any) {

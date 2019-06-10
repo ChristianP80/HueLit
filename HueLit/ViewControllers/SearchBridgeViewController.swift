@@ -41,8 +41,6 @@ class SearchBridgeViewController: UIViewController {
             print(response!)
             do {
                 self.bridgeInfo = try JSONDecoder().decode([BridgeInfo].self, from: data)
-//                print(self.bridgeInfo[0].id!)
-//                print(self.bridgeInfo[0].internalipaddress!)
                 print(self.bridgeInfo)
                 print(self.bridgeInfo.count)
                 self.updateSearchUI()
