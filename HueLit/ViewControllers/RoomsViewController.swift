@@ -114,7 +114,6 @@ class RoomsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let selectedRoomVC = self.storyboard?.instantiateViewController(withIdentifier: "selectedRoomVC") as! SelectedRoomViewController
 //        self.present(selectedRoomVC, animated: true, completion: nil)
-        print(roomArray[indexPath.row].val.action)
         performSegue(withIdentifier: "changeColor", sender: self)
     }
     
